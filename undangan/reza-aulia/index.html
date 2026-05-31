@@ -10,7 +10,7 @@
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Great+Vibes&family=Josefin+Sans:wght@100;200;300;400;600&display=swap" rel="stylesheet">
 <style>
-/* ========== STYLE LENGKAP (sama seperti sebelumnya, tidak diubah) ========== */
+/* ========== STYLE LENGKAP (sama seperti sebelumnya) ========== */
 :root{--gold:#C59E46;--gold-light:#E8C96A;--gold-dim:rgba(197,158,70,0.4);--gold-faint:rgba(197,158,70,0.12);--dark:#080604;--dark2:#0F0B07;--dark3:#1A120A;--brown:#2C1A0E;--text:#EDE0C8;--text-muted:rgba(237,224,200,0.45);--font-script:'Great Vibes',cursive;--font-serif:'Cormorant Garamond',Georgia,serif;--font-sans:'Josefin Sans',sans-serif;}
 *{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
 body{font-family:var(--font-sans);background:var(--dark);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
@@ -160,7 +160,7 @@ main{opacity:0;transition:opacity .8s ease;}main.visible{opacity:1;}
     <div class="gift-card reveal d3"><div class="gift-card-top"><div class="gift-bank-logo">🏦</div><div><div class="gift-bank-name" id="bank1-nama">Bank BCA</div><div class="gift-bank-sub" id="bank1-sub">PT Bank Central Asia Tbk.</div></div></div><div class="gift-card-body"><div class="gift-account-label">NOMOR REKENING</div><div class="gift-account-row"><div class="gift-account-num" id="norek-1">1234 5678 90</div><button class="gift-copy-btn" onclick="copyRek('norek-1',this)">SALIN</button></div><div class="gift-account-name" id="bank1-owner">a.n. Reza Maulana Hakim</div></div></div>
     <div class="gift-card reveal d4" style="margin-top:12px"><div class="gift-card-top"><div class="gift-bank-logo">💳</div><div><div class="gift-bank-name" id="bank2-nama">GoPay / OVO / Dana</div><div class="gift-bank-sub" id="bank2-sub">Dompet Digital</div></div></div><div class="gift-card-body"><div class="gift-account-label">NOMOR HP</div><div class="gift-account-row"><div class="gift-account-num" id="norek-2">0812-3456-7890</div><button class="gift-copy-btn" onclick="copyRek('norek-2',this)">SALIN</button></div><div class="gift-account-name" id="bank2-owner">a.n. Aulia Rahmadani Putri</div></div></div>
     <div class="gift-note reveal d4">Kehadiran dan doa Anda jauh lebih berarti dari hadiah apapun 🤍</div></div></section>
-  <!-- UCAPAN (Google Sheets) -->
+  <!-- UCAPAN (Firebase) -->
   <section class="wish-section"><div class="inner"><div class="reveal"><div class="gold-line-short"></div></div><div class="reveal d1" style="margin-top:16px"><span class="section-tag">KIRIM DOA & UCAPAN</span></div>
     <div class="wish-form reveal d2"><input class="form-input" type="text" placeholder="Nama Anda…" id="wish-name"/><textarea class="wish-textarea" placeholder="Tulis doa dan ucapan terbaik Anda…" id="wish-text"></textarea><button class="wish-submit" onclick="submitWish()">KIRIM UCAPAN ✦</button></div>
     <div class="wish-list" id="wish-list"></div></div></section>
@@ -168,7 +168,7 @@ main{opacity:0;transition:opacity .8s ease;}main.visible{opacity:1;}
   <section class="closing-section"><div class="reveal"><div class="gold-line-short"></div></div><div class="reveal d1" style="margin-top:20px"><span class="section-tag">DENGAN SEPENUH HATI</span></div><div class="closing-script reveal d2" id="closing-names">Reza & Aulia</div><div class="gold-line-short reveal d3" style="margin-bottom:20px"></div><div class="closing-verse reveal d3">Merupakan suatu kehormatan dan kebahagiaan bagi kami sekeluarga apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada putra-putri kami.</div><div class="closing-credit reveal d4">UNDANGAN DIGITAL DIBUAT OLEH<br/><a href="https://wa.me/629517097989" target="_blank">✦ REGYAG ✦</a></div></section>
 </main>
 
-<!-- Firebase SDK (Realtime Database) -->
+<!-- Firebase SDK -->
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
@@ -264,12 +264,11 @@ document.getElementById('google-calender-link').href = calLink;
 const WEDDING_DATE = new Date(config.tanggalAcara);
 const NOMOR_WA = config.nomorWA;
 
-// ========== PROTEKSI (anti klik kanan & developer tools) ==========
+// ========== PROTEKSI ==========
 document.addEventListener('contextmenu',function(e){e.preventDefault();return false;});
 document.addEventListener('keydown',function(e){if(e.key==='F12'||(e.ctrlKey&&e.shiftKey&&e.key==='I')||(e.ctrlKey&&e.key==='u')||(e.ctrlKey&&e.key==='s')){e.preventDefault();return false;}});
 
-// ========== FIREBASE REALTIME DATABASE — UCAPAN & DOA ==========
-// SDK Firebase (versi compat — bisa dipakai langsung tanpa bundler)
+// ========== FIREBASE & PAGINATION ==========
 const _fbApp  = firebase.initializeApp({
   apiKey:            "AIzaSyAOOJW5lmYIbsmc_c7V7qmucUIprlUQGSQ",
   authDomain:        "undangan-reza-aulia.firebaseapp.com",
@@ -280,7 +279,10 @@ const _fbApp  = firebase.initializeApp({
   appId:             "1:23338138608:web:4a59bd8a138a394b25bb35"
 });
 const _db = firebase.database();
-const _wishRef = _db.ref('ucapan'); // data tersimpan di node "ucapan"
+const _wishRef = _db.ref('ucapan');
+
+let allWishes = [];       // menyimpan semua ucapan (array)
+let visibleCount = 10;    // jumlah yang ditampilkan
 
 function escapeHtml(str) {
   if (!str) return '';
@@ -296,30 +298,45 @@ function formatTime(ts) {
   return Math.floor(jam / 24) + ' hari lalu';
 }
 
+function displayWishes() {
+  const wishList = document.getElementById('wish-list');
+  wishList.innerHTML = '';
+  const toShow = allWishes.slice(0, visibleCount);
+  toShow.forEach(wish => {
+    const item = document.createElement('div');
+    item.className = 'wish-item';
+    item.innerHTML = `<div class="wish-item-name">${escapeHtml(wish.name)} <span style="font-size:7px;opacity:.6">• ${formatTime(wish.timestamp)}</span></div>
+                      <div class="wish-item-text">"${escapeHtml(wish.text)}"</div>`;
+    wishList.appendChild(item);
+  });
+  if (allWishes.length > visibleCount) {
+    const remaining = allWishes.length - visibleCount;
+    const btnDiv = document.createElement('div');
+    btnDiv.style.textAlign = 'center';
+    btnDiv.style.marginTop = '16px';
+    btnDiv.innerHTML = `<button id="load-more-btn" style="background:transparent;border:1px solid var(--gold-dim);color:var(--gold);padding:8px 16px;border-radius:40px;cursor:pointer;font-size:11px;">🔽 Lihat ${remaining} ucapan sebelumnya</button>`;
+    wishList.appendChild(btnDiv);
+    document.getElementById('load-more-btn').addEventListener('click', () => {
+      visibleCount += 10;
+      displayWishes();
+    });
+  }
+}
+
 function renderWishes() {
-  // Dengarkan perubahan realtime — otomatis update tanpa refresh
   const wishList = document.getElementById('wish-list');
   wishList.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text-muted);font-size:11px">Memuat ucapan…</div>';
-
   _wishRef.orderByChild('timestamp').on('value', snapshot => {
-    wishList.innerHTML = '';
     const data = snapshot.val();
-
     if (!data) {
       wishList.innerHTML = '<div class="wish-item" style="text-align:center;color:var(--text-muted)">Belum ada ucapan. Jadilah yang pertama! 🤍</div>';
+      allWishes = [];
+      visibleCount = 10;
       return;
     }
-
-    // Ubah objek Firebase jadi array, urutkan terbaru di atas
-    const arr = Object.values(data).sort((a, b) => b.timestamp - a.timestamp);
-
-    arr.forEach(wish => {
-      const item = document.createElement('div');
-      item.className = 'wish-item';
-      item.innerHTML = `<div class="wish-item-name">${escapeHtml(wish.name)} <span style="font-size:7px;opacity:.6">• ${formatTime(wish.timestamp)}</span></div>
-                        <div class="wish-item-text">"${escapeHtml(wish.text)}"</div>`;
-      wishList.appendChild(item);
-    });
+    allWishes = Object.values(data).sort((a, b) => b.timestamp - a.timestamp);
+    visibleCount = 10; // reset ke 10 setiap ada data baru (misal ada ucapan baru masuk)
+    displayWishes();
   });
 }
 
@@ -327,27 +344,21 @@ function submitWish() {
   const name = document.getElementById('wish-name').value.trim();
   const text = document.getElementById('wish-text').value.trim();
   if (!name || !text) { alert('Mohon isi nama dan ucapan Anda.'); return; }
-
   const btn = document.querySelector('.wish-submit');
   btn.textContent = 'MENGIRIM…';
   btn.disabled = true;
-
-  // Simpan ke Firebase — push() otomatis buat ID unik
   _wishRef.push({
-    name:      name.toUpperCase(),
-    text:      text,
+    name: name.toUpperCase(),
+    text: text,
     timestamp: Date.now()
-  })
-  .then(() => {
+  }).then(() => {
     document.getElementById('wish-name').value = '';
     document.getElementById('wish-text').value = '';
     btn.textContent = 'KIRIM UCAPAN ✦';
     btn.disabled = false;
-    // Notif WA ke pengantin
     const waText = `Halo pengantin! Saya *${name}* ingin menyampaikan doa & ucapan:\n\n_"${text}"_`;
     window.open(`https://wa.me/${NOMOR_WA}?text=${encodeURIComponent(waText)}`, '_blank');
-  })
-  .catch(() => {
+  }).catch(() => {
     alert('Gagal mengirim. Periksa koneksi internet Anda.');
     btn.textContent = 'KIRIM UCAPAN ✦';
     btn.disabled = false;
@@ -363,9 +374,7 @@ function openInvitation() {
   main.style.display = 'block';
   main.offsetHeight;
   main.classList.add('visible');
-  setTimeout(() => {
-    revealOnScroll();
-  }, 300);
+  setTimeout(() => { revealOnScroll(); }, 300);
   const music = document.getElementById('bg-music');
   const btn = document.getElementById('music-btn');
   music.play().then(() => { musicPlaying = true; btn.textContent = '🔊'; btn.classList.add('playing'); }).catch(e => console.log);
