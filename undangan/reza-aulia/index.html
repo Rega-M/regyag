@@ -174,9 +174,8 @@ main{opacity:0;transition:opacity .8s ease;}main.visible{opacity:1;}
 </main>
 
 <script>
-// ✏️ ========== KONFIGURASI MUDAH EDIT (HANYA BAGIAN INI YANG DIUBAH) ========== ✏️
+// ==================== KONFIGURASI (EDIT DI SINI) ====================
 const config = {
-  // Data Pengantin
   namaPria: "Reza Maulana Hakim",
   namaWanita: "Aulia Rahmadani Putri",
   inisialPria: "R",
@@ -185,8 +184,6 @@ const config = {
   gelarWanita: "S.Pd.",
   orangTuaPria: "Bapak H. Maulana Syaputra<br/>& Ibu Hj. Siti Rahayu",
   orangTuaWanita: "Bapak Drs. Rahmat Hidayat<br/>& Ibu Lestari Wulandari, M.M.",
-  
-  // Tanggal & Waktu Acara
   tanggalAcara: "2026-06-06T08:00:00",
   hari: "SABTU",
   tanggal: "6",
@@ -194,26 +191,18 @@ const config = {
   jamMulai: "08.00 WIB",
   jamResepsi: "11.00 — 17.00 WIB",
   hariJawa: "SABTU PON",
-  
-  // Lokasi Akad
   akadNama: "Masjid Baiturrohman Al-Hasanah",
   akadAlamat: "Jl. Kemang Raya No. 88, Bangka, Mampang Prapatan, Jakarta Selatan",
   akadWaktu: "🕗 08.00 — 10.00 WIB",
   akadMapLink: "https://maps.google.com/?q=Masjid+Baiturrohman+Jakarta",
-  
-  // Lokasi Resepsi
   resepsiNama: "Grand Ballroom The Ritz Jakarta",
   resepsiAlamat: "Jl. MH Thamrin Kav. 1, Gondangdia, Menteng, Jakarta Pusat",
   resepsiWaktu: "🕚 11.00 — 17.00 WIB",
   resepsiMapLink: "https://maps.google.com/?q=Grand+Ballroom+The+Ritz+Jakarta",
-  
-  // Galeri foto (path foto)
   foto1: "images/foto1.jpg",
   foto2: "images/foto2.jpg",
   foto3: "images/foto3.jpg",
   foto4: "images/foto4.jpg",
-  
-  // Rekening
   bank1Nama: "Bank BCA",
   bank1Sub: "PT Bank Central Asia Tbk.",
   bank1Nomor: "1234 5678 90",
@@ -222,20 +211,15 @@ const config = {
   bank2Sub: "Dompet Digital",
   bank2Nomor: "0812-3456-7890",
   bank2Pemilik: "a.n. Aulia Rahmadani Putri",
-  
-  // Musik
   musikSrc: "dankini.mp3",
-  
-  // WA & Google Sheets
   nomorWA: "6289517097989",
-  googleSheetURL: "https://script.google.com/macros/s/AKfycbxTroTuDthMhgkA9n5jXf942VzdF82GArojAlO1b803tMjlPaS7KrMeWsdiaI6jbBRZ/exec",
-  
-  // Ucapan & doa
+  // *** GANTI DENGAN URL WEB APP ANDA YANG BARU ***
+  googleSheetURL: "https://script.google.com/macros/s/AKfycbyXElyyQFSb8oYV6Q4G0AUCVtbVHkg6K18YqTn_alcypkftJoPHheiA1GU6pfLalRHQ/exec",
   ayat: '"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri…"',
   sumberAyat: "— QS. Ar-Rum: 21",
 };
 
-// ========== TERAPKAN KONFIGURASI ==========
+// ==================== TERAPKAN KONFIGURASI ====================
 document.getElementById('cover-initial-pria').innerText = config.inisialPria;
 document.getElementById('cover-initial-wanita').innerText = config.inisialWanita;
 document.getElementById('mono-pria').innerText = config.inisialPria;
@@ -246,16 +230,13 @@ document.getElementById('hari').innerText = config.hari;
 document.getElementById('tanggal').innerText = config.tanggal;
 document.getElementById('bulan-tahun').innerText = config.bulanTahun;
 document.getElementById('waktu').innerText = config.jamMulai;
-
 document.querySelector('#orang-tua-pria .full-name').innerHTML = config.namaPria + (config.gelarPria ? ", " + config.gelarPria : "");
 document.querySelector('#orang-tua-pria .son-of').innerHTML = `Putra dari ${config.orangTuaPria}`;
 document.querySelector('#orang-tua-wanita .full-name').innerHTML = config.namaWanita + (config.gelarWanita ? ", " + config.gelarWanita : "");
 document.querySelector('#orang-tua-wanita .son-of').innerHTML = `Putri dari ${config.orangTuaWanita}`;
-
 document.getElementById('day-name').innerText = config.hariJawa;
 document.getElementById('day-num').innerText = config.tanggal;
 document.getElementById('month-year').innerText = config.bulanTahun;
-
 document.getElementById('akad-nama').innerText = config.akadNama;
 document.getElementById('akad-alamat').innerText = config.akadAlamat;
 document.getElementById('akad-waktu').innerHTML = config.akadWaktu;
@@ -264,14 +245,12 @@ document.getElementById('resepsi-nama').innerText = config.resepsiNama;
 document.getElementById('resepsi-alamat').innerText = config.resepsiAlamat;
 document.getElementById('resepsi-waktu').innerHTML = config.resepsiWaktu;
 document.getElementById('resepsi-map').href = config.resepsiMapLink;
-
 if(document.getElementById('foto1')) document.getElementById('foto1').src = config.foto1;
 if(document.getElementById('foto2')) document.getElementById('foto2').src = config.foto2;
 if(document.getElementById('foto3')) document.getElementById('foto3').src = config.foto3;
 if(document.getElementById('foto4')) document.getElementById('foto4').src = config.foto4;
 document.getElementById('gallery-caption').innerText = config.namaPria.split(' ')[0] + " & " + config.namaWanita.split(' ')[0];
 document.getElementById('closing-names').innerText = config.namaPria.split(' ')[0] + " & " + config.namaWanita.split(' ')[0];
-
 document.getElementById('bank1-nama').innerText = config.bank1Nama;
 document.getElementById('bank1-sub').innerText = config.bank1Sub;
 document.getElementById('norek-1').innerText = config.bank1Nomor;
@@ -280,37 +259,115 @@ document.getElementById('bank2-nama').innerText = config.bank2Nama;
 document.getElementById('bank2-sub').innerText = config.bank2Sub;
 document.getElementById('norek-2').innerText = config.bank2Nomor;
 document.getElementById('bank2-owner').innerText = config.bank2Pemilik;
-
 const musicEl = document.getElementById('bg-music');
 if(musicEl) musicEl.src = config.musikSrc;
-
 if(document.getElementById('ayat-pilihan')) document.getElementById('ayat-pilihan').innerText = config.ayat;
 if(document.getElementById('sumber-ayat')) document.getElementById('sumber-ayat').innerText = config.sumberAyat;
-
 const tglAcara = new Date(config.tanggalAcara);
 const tglMulai = tglAcara.toISOString().replace(/-|:|\.\d+/g, '');
 const tglSelesai = new Date(tglAcara.getTime() + 6*3600000).toISOString().replace(/-|:|\.\d+/g, '');
 const calLink = `https://www.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+${encodeURIComponent(config.namaPria.split(' ')[0])}+%26+${encodeURIComponent(config.namaWanita.split(' ')[0])}&dates=${tglMulai}/${tglSelesai}&details=Akad+jam+${encodeURIComponent(config.jamMulai)}+di+${encodeURIComponent(config.akadNama)}%2C+Resepsi+jam+${encodeURIComponent(config.resepsiWaktu)}+di+${encodeURIComponent(config.resepsiNama)}&location=${encodeURIComponent(config.akadAlamat)}`;
 document.getElementById('google-calender-link').href = calLink;
-
 const WEDDING_DATE = new Date(config.tanggalAcara);
 const GOOGLE_SHEET_URL = config.googleSheetURL;
 const NOMOR_WA = config.nomorWA;
 
-// ========== PROTEKSI ==========
+// ==================== PROTEKSI ====================
 document.addEventListener('contextmenu',function(e){e.preventDefault();return false;});
 document.addEventListener('keydown',function(e){if(e.key==='F12'||(e.ctrlKey&&e.shiftKey&&e.key==='I')||(e.ctrlKey&&e.key==='u')||(e.ctrlKey&&e.key==='s')){e.preventDefault();return false;}});
 
-// ========== FUNGSI ==========
+// ==================== FUNGSI UTAMA ====================
 let musicPlaying = false;
-function openInvitation(){
-  const cover=document.getElementById('cover'),main=document.getElementById('main-content');
-  cover.classList.add('hidden');main.style.display='block';main.offsetHeight;main.classList.add('visible');
-  setTimeout(revealOnScroll,300);
-  const music=document.getElementById('bg-music'),btn=document.getElementById('music-btn');
-  music.play().then(()=>{musicPlaying=true;btn.textContent='🔊';btn.classList.add('playing');}).catch(e=>console.log);
+
+function escapeHtml(str) {
+  if (!str) return '';
+  return str.replace(/[&<>]/g, function(m) {
+    if (m === '&') return '&amp;';
+    if (m === '<') return '&lt;';
+    if (m === '>') return '&gt;';
+    return m;
+  });
+}
+
+// Fungsi memuat ucapan dari Google Sheets (terbaru di atas)
+function loadWishes() {
+  const wishList = document.getElementById('wish-list');
+  if (!wishList) return;
+  wishList.innerHTML = '<div style="text-align:center; padding:20px;">Memuat ucapan...</div>';
+  fetch(`${GOOGLE_SHEET_URL}?action=getWishes`)
+    .then(response => response.json())
+    .then(data => {
+      wishList.innerHTML = '';
+      if (!data || data.length === 0) {
+        wishList.innerHTML = '<div class="wish-item" style="text-align:center;">Belum ada ucapan. Jadilah yang pertama mengirim doa!</div>';
+        return;
+      }
+      data.forEach(wish => {
+        const item = document.createElement('div');
+        item.className = 'wish-item';
+        item.innerHTML = `<div class="wish-item-name">${escapeHtml(wish.name.toUpperCase())} <span style="font-size:7px; opacity:0.6;">• ${escapeHtml(wish.time)}</span></div>
+                          <div class="wish-item-text">"${escapeHtml(wish.text)}"</div>`;
+        wishList.appendChild(item);
+      });
+    })
+    .catch(err => {
+      console.error('Gagal memuat ucapan:', err);
+      wishList.innerHTML = '<div class="wish-item" style="text-align:center;">Gagal memuat ucapan. Coba refresh halaman.</div>';
+    });
+}
+
+// Submit ucapan (tetap mengirim ke server, lalu muat ulang)
+function submitWish() {
+  const name = document.getElementById('wish-name').value.trim();
+  const text = document.getElementById('wish-text').value.trim();
+  if (!name || !text) { alert('Mohon isi nama dan ucapan Anda.'); return; }
+  const btn = document.querySelector('.wish-submit');
+  const originalText = btn.textContent;
+  btn.textContent = 'MENGIRIM...';
+  btn.disabled = true;
+  const formData = new FormData();
+  formData.append('type', 'wish');
+  formData.append('name', name);
+  formData.append('text', text);
+  fetch(GOOGLE_SHEET_URL, { method: 'POST', body: formData, mode: 'no-cors' })
+    .then(() => {
+      // Reset form
+      document.getElementById('wish-name').value = '';
+      document.getElementById('wish-text').value = '';
+      btn.textContent = originalText;
+      btn.disabled = false;
+      // Muat ulang ucapan dari server (menampilkan data terbaru)
+      loadWishes();
+      // Kirim notifikasi WhatsApp
+      const waText = `Halo pengantin! Saya *${name}* ingin menyampaikan doa & ucapan:\n\n_"${text}"_`;
+      window.open(`https://wa.me/${NOMOR_WA}?text=${encodeURIComponent(waText)}`, '_blank');
+    })
+    .catch(err => {
+      alert('Maaf, terjadi kesalahan. Silakan coba lagi.');
+      btn.textContent = originalText;
+      btn.disabled = false;
+    });
+}
+
+// Buka undangan (dipanggil saat tombol diklik)
+function openInvitation() {
+  const cover = document.getElementById('cover');
+  const main = document.getElementById('main-content');
+  cover.classList.add('hidden');
+  main.style.display = 'block';
+  main.offsetHeight;
+  main.classList.add('visible');
+  setTimeout(() => {
+    revealOnScroll();
+    loadWishes(); // <--- KUNCI: memuat ucapan dari spreadsheet
+  }, 300);
+  const music = document.getElementById('bg-music');
+  const btn = document.getElementById('music-btn');
+  music.play().then(() => { musicPlaying = true; btn.textContent = '🔊'; btn.classList.add('playing'); }).catch(e => console.log);
   startConfetti();
 }
+
+// Fungsi lain (countdown, confetti, dll) tetap sama seperti kode Anda sebelumnya
 function startConfetti(){
   const canvas=document.createElement('canvas');canvas.style.position='fixed';canvas.style.top='0';canvas.style.left='0';canvas.style.width='100%';canvas.style.height='100%';canvas.style.pointerEvents='none';canvas.style.zIndex='9998';document.body.appendChild(canvas);
   const ctx=canvas.getContext('2d');canvas.width=window.innerWidth;canvas.height=window.innerHeight;
@@ -329,36 +386,8 @@ function submitRsvp(){const name=document.getElementById('rsvp-name').value.trim
 const btn=document.querySelector('.rsvp-submit');btn.textContent='MENGIRIM...';btn.disabled=true;const formData=new FormData();formData.append('type','rsvp');formData.append('name',name);formData.append('status',status);formData.append('count',count);
 fetch(GOOGLE_SHEET_URL,{method:'POST',body:formData,mode:'no-cors'}).then(()=>{document.getElementById('rsvp-form').style.display='none';document.getElementById('rsvp-success').style.display='block';const waText=`Halo, saya *${name}*. Mengkonfirmasi bahwa saya *${status}* hadir dengan jumlah tamu *${count}* orang.`;window.open(`https://wa.me/${NOMOR_WA}?text=${encodeURIComponent(waText)}`,'_blank');}).catch(()=>{alert('Maaf, terjadi kesalahan. Silakan coba lagi.');btn.textContent='KIRIM KONFIRMASI';btn.disabled=false;});}
 function copyRek(elId,btn){const val=document.getElementById(elId).textContent.replace(/\s/g,'');navigator.clipboard.writeText(val).then(()=>{const orig=btn.textContent;btn.textContent='TERSALIN!';setTimeout(()=>btn.textContent=orig,1500);}).catch(()=>{const el=document.getElementById(elId);const range=document.createRange();range.selectNodeContents(el);window.getSelection().removeAllRanges();window.getSelection().addRange(range);document.execCommand('copy');const orig=btn.textContent;btn.textContent='TERSALIN!';setTimeout(()=>btn.textContent=orig,1500);});}
-function submitWish() {
-  const name = document.getElementById('wish-name').value.trim();
-  const text = document.getElementById('wish-text').value.trim();
-  if (!name || !text) { alert('Mohon isi nama dan ucapan Anda.'); return; }
-  const btn = document.querySelector('.wish-submit');
-  const originalText = btn.textContent;
-  btn.textContent = 'MENGIRIM...';
-  btn.disabled = true;
-  const list = document.getElementById('wish-list');
-  const item = document.createElement('div');
-  item.className = 'wish-item wish-item-new';
-  const now = new Date();
-  const timeStr = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
-  item.innerHTML = `<div class="wish-item-name">${name.toUpperCase()} <span style="font-size:7px; opacity:0.6;">• ${timeStr}</span></div>
-                    <div class="wish-item-text">"${text.replace(/"/g, '&quot;')}"</div>`;
-  list.insertBefore(item, list.firstChild);
-  item.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  setTimeout(() => { item.classList.remove('wish-item-new'); }, 1500);
-  document.getElementById('wish-name').value = '';
-  document.getElementById('wish-text').value = '';
-  btn.textContent = originalText;
-  btn.disabled = false;
-  const formData = new FormData();
-  formData.append('type', 'wish');
-  formData.append('name', name);
-  formData.append('text', text);
-  fetch(GOOGLE_SHEET_URL, { method: 'POST', body: formData, mode: 'no-cors' }).catch(e => console.log(e));
-  const waText = `Halo pengantin! Saya *${name}* ingin menyampaikan doa & ucapan:\n\n_"${text}"_`;
-  window.open(`https://wa.me/${NOMOR_WA}?text=${encodeURIComponent(waText)}`, '_blank');
-}
+
+// Event listener untuk tombol buka undangan
 document.getElementById('openInvBtn').addEventListener('click', openInvitation);
 </script>
 </body>
