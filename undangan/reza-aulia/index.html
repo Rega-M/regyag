@@ -174,7 +174,7 @@ main{opacity:0;transition:opacity .8s ease;}main.visible{opacity:1;}
 </main>
 
 <script>
-// ==================== KONFIGURASI (EDIT DI SINI) ====================
+// ✏️ ========== KONFIGURASI MUDAH EDIT ==========
 const config = {
   namaPria: "Reza Maulana Hakim",
   namaWanita: "Aulia Rahmadani Putri",
@@ -213,13 +213,13 @@ const config = {
   bank2Pemilik: "a.n. Aulia Rahmadani Putri",
   musikSrc: "dankini.mp3",
   nomorWA: "6289517097989",
-  // *** GANTI DENGAN URL WEB APP ANDA YANG BARU ***
-  googleSheetURL: "https://script.google.com/macros/s/AKfycbyXElyyQFSb8oYV6Q4G0AUCVtbVHkg6K18YqTn_alcypkftJoPHheiA1GU6pfLalRHQ/exec",
+  // ⚠️ GANTI DENGAN URL WEB APP ANDA YANG BARU ⚠️
+  googleSheetURL: "https://script.google.com/macros/s/AKfycbxTroTuDthMhgkA9n5jXf942VzdF82GArojAlO1b803tMjlPaS7KrMeWsdiaI6jbBRZ/exec",
   ayat: '"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri…"',
   sumberAyat: "— QS. Ar-Rum: 21",
 };
 
-// ==================== TERAPKAN KONFIGURASI ====================
+// ========== TERAPKAN KONFIGURASI (TIDAK PERLU DIUBAH) ==========
 document.getElementById('cover-initial-pria').innerText = config.inisialPria;
 document.getElementById('cover-initial-wanita').innerText = config.inisialWanita;
 document.getElementById('mono-pria').innerText = config.inisialPria;
@@ -272,11 +272,11 @@ const WEDDING_DATE = new Date(config.tanggalAcara);
 const GOOGLE_SHEET_URL = config.googleSheetURL;
 const NOMOR_WA = config.nomorWA;
 
-// ==================== PROTEKSI ====================
+// ========== PROTEKSI ==========
 document.addEventListener('contextmenu',function(e){e.preventDefault();return false;});
 document.addEventListener('keydown',function(e){if(e.key==='F12'||(e.ctrlKey&&e.shiftKey&&e.key==='I')||(e.ctrlKey&&e.key==='u')||(e.ctrlKey&&e.key==='s')){e.preventDefault();return false;}});
 
-// ==================== FUNGSI UTAMA ====================
+// ========== FUNGSI ==========
 let musicPlaying = false;
 
 function escapeHtml(str) {
@@ -289,13 +289,14 @@ function escapeHtml(str) {
   });
 }
 
-// Fungsi memuat ucapan dari Google Sheets (terbaru di atas)
 function loadWishes() {
   const wishList = document.getElementById('wish-list');
-  if (!wishList) return;
   wishList.innerHTML = '<div style="text-align:center; padding:20px;">Memuat ucapan...</div>';
-  fetch(`${GOOGLE_SHEET_URL}?action=getWishes`)
-    .then(response => response.json())
+  fetch(GOOGLE_SHEET_URL + '?action=getWishes')
+    .then(response => {
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      return response.json();
+    })
     .then(data => {
       wishList.innerHTML = '';
       if (!data || data.length === 0) {
@@ -311,12 +312,11 @@ function loadWishes() {
       });
     })
     .catch(err => {
-      console.error('Gagal memuat ucapan:', err);
-      wishList.innerHTML = '<div class="wish-item" style="text-align:center;">Gagal memuat ucapan. Coba refresh halaman.</div>';
+      console.error('Load wishes error:', err);
+      wishList.innerHTML = '<div class="wish-item" style="text-align:center;">Gagal memuat ucapan. Periksa koneksi atau coba lagi nanti.</div>';
     });
 }
 
-// Submit ucapan (tetap mengirim ke server, lalu muat ulang)
 function submitWish() {
   const name = document.getElementById('wish-name').value.trim();
   const text = document.getElementById('wish-text').value.trim();
@@ -331,14 +331,11 @@ function submitWish() {
   formData.append('text', text);
   fetch(GOOGLE_SHEET_URL, { method: 'POST', body: formData, mode: 'no-cors' })
     .then(() => {
-      // Reset form
       document.getElementById('wish-name').value = '';
       document.getElementById('wish-text').value = '';
       btn.textContent = originalText;
       btn.disabled = false;
-      // Muat ulang ucapan dari server (menampilkan data terbaru)
-      loadWishes();
-      // Kirim notifikasi WhatsApp
+      loadWishes(); // refresh daftar ucapan
       const waText = `Halo pengantin! Saya *${name}* ingin menyampaikan doa & ucapan:\n\n_"${text}"_`;
       window.open(`https://wa.me/${NOMOR_WA}?text=${encodeURIComponent(waText)}`, '_blank');
     })
@@ -349,7 +346,6 @@ function submitWish() {
     });
 }
 
-// Buka undangan (dipanggil saat tombol diklik)
 function openInvitation() {
   const cover = document.getElementById('cover');
   const main = document.getElementById('main-content');
@@ -359,7 +355,7 @@ function openInvitation() {
   main.classList.add('visible');
   setTimeout(() => {
     revealOnScroll();
-    loadWishes(); // <--- KUNCI: memuat ucapan dari spreadsheet
+    loadWishes(); // ← memuat ucapan saat undangan dibuka
   }, 300);
   const music = document.getElementById('bg-music');
   const btn = document.getElementById('music-btn');
@@ -367,7 +363,7 @@ function openInvitation() {
   startConfetti();
 }
 
-// Fungsi lain (countdown, confetti, dll) tetap sama seperti kode Anda sebelumnya
+// Fungsi lainnya (confetti, countdown, dll) - tetap sama seperti sebelumnya
 function startConfetti(){
   const canvas=document.createElement('canvas');canvas.style.position='fixed';canvas.style.top='0';canvas.style.left='0';canvas.style.width='100%';canvas.style.height='100%';canvas.style.pointerEvents='none';canvas.style.zIndex='9998';document.body.appendChild(canvas);
   const ctx=canvas.getContext('2d');canvas.width=window.innerWidth;canvas.height=window.innerHeight;
@@ -387,8 +383,7 @@ const btn=document.querySelector('.rsvp-submit');btn.textContent='MENGIRIM...';b
 fetch(GOOGLE_SHEET_URL,{method:'POST',body:formData,mode:'no-cors'}).then(()=>{document.getElementById('rsvp-form').style.display='none';document.getElementById('rsvp-success').style.display='block';const waText=`Halo, saya *${name}*. Mengkonfirmasi bahwa saya *${status}* hadir dengan jumlah tamu *${count}* orang.`;window.open(`https://wa.me/${NOMOR_WA}?text=${encodeURIComponent(waText)}`,'_blank');}).catch(()=>{alert('Maaf, terjadi kesalahan. Silakan coba lagi.');btn.textContent='KIRIM KONFIRMASI';btn.disabled=false;});}
 function copyRek(elId,btn){const val=document.getElementById(elId).textContent.replace(/\s/g,'');navigator.clipboard.writeText(val).then(()=>{const orig=btn.textContent;btn.textContent='TERSALIN!';setTimeout(()=>btn.textContent=orig,1500);}).catch(()=>{const el=document.getElementById(elId);const range=document.createRange();range.selectNodeContents(el);window.getSelection().removeAllRanges();window.getSelection().addRange(range);document.execCommand('copy');const orig=btn.textContent;btn.textContent='TERSALIN!';setTimeout(()=>btn.textContent=orig,1500);});}
 
-// Event listener untuk tombol buka undangan
 document.getElementById('openInvBtn').addEventListener('click', openInvitation);
-</script>
+</script>git add
 </body>
 </html>
