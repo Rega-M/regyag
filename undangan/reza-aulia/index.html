@@ -214,7 +214,7 @@ const config = {
   musikSrc: "dankini.mp3",
   nomorWA: "6289517097989",
   // ⚠️ GANTI DENGAN URL WEB APP ANDA YANG BARU ⚠️
-  googleSheetURL: "https://script.google.com/macros/s/AKfycbxTroTuDthMhgkA9n5jXf942VzdF82GArojAlO1b803tMjlPaS7KrMeWsdiaI6jbBRZ/exec",
+  googleSheetURL: "https://script.google.com/macros/s/AKfycbw16x_AJgVFEDG53iPw-A3Rlr4a2ZET4vCXv7MmYCYvRd-6VqaBfg4yH48gBXsyUobl/exec",
   ayat: '"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan untukmu pasangan hidup dari jenismu sendiri…"',
   sumberAyat: "— QS. Ar-Rum: 21",
 };
@@ -384,6 +384,6 @@ fetch(GOOGLE_SHEET_URL,{method:'POST',body:formData,mode:'no-cors'}).then(()=>{d
 function copyRek(elId,btn){const val=document.getElementById(elId).textContent.replace(/\s/g,'');navigator.clipboard.writeText(val).then(()=>{const orig=btn.textContent;btn.textContent='TERSALIN!';setTimeout(()=>btn.textContent=orig,1500);}).catch(()=>{const el=document.getElementById(elId);const range=document.createRange();range.selectNodeContents(el);window.getSelection().removeAllRanges();window.getSelection().addRange(range);document.execCommand('copy');const orig=btn.textContent;btn.textContent='TERSALIN!';setTimeout(()=>btn.textContent=orig,1500);});}
 
 document.getElementById('openInvBtn').addEventListener('click', openInvitation);
-</script>git add
+</script>
 </body>
 </html>
