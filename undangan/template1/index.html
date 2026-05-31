@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=yes">
 <meta name="robots" content="noindex,nofollow">
-<title>Undangan Pernikahan Reza & Aulia</title>
-<meta name="description" content="Undangan Pernikahan Reza Maulana & Aulia Rahmadani">
+<title>Undangan Pernikahan - Dark Gold Cinematic</title>
+<meta name="description" content="Undangan Pernikahan - Template Dark Gold Cinematic">
 <meta property="og:image" content="https://placehold.co/800x400/1A120A/C59E46?text=REGYAG">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Great+Vibes&family=Josefin+Sans:wght@100;200;300;400;600&display=swap" rel="stylesheet">
 <style>
-/* ========== STYLE LENGKAP (sama seperti sebelumnya) ========== */
+/* ========== STYLE DARK GOLD CINEMATIC ========== */
 :root{--gold:#C59E46;--gold-light:#E8C96A;--gold-dim:rgba(197,158,70,0.4);--gold-faint:rgba(197,158,70,0.12);--dark:#080604;--dark2:#0F0B07;--dark3:#1A120A;--brown:#2C1A0E;--text:#EDE0C8;--text-muted:rgba(237,224,200,0.45);--font-script:'Great Vibes',cursive;--font-serif:'Cormorant Garamond',Georgia,serif;--font-sans:'Josefin Sans',sans-serif;}
 *{box-sizing:border-box;margin:0;padding:0;}html{scroll-behavior:smooth;}
 body{font-family:var(--font-sans);background:var(--dark);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
@@ -102,7 +102,7 @@ main{opacity:0;transition:opacity .8s ease;}main.visible{opacity:1;}
 </head>
 <body>
 
-<audio id="bg-music" src="sementara.mp3" loop preload="auto"></audio>
+<audio id="bg-music" src="music/dark-gold.mp3" loop preload="auto"></audio>
 <div id="cover">
   <div class="cover-ornament">✦ ✦ ✦</div>
   <div class="cover-script" id="cover-initial-pria">R</div>
@@ -173,8 +173,11 @@ main{opacity:0;transition:opacity .8s ease;}main.visible{opacity:1;}
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 
 <script>
-// ========== KONFIGURASI MUDAH EDIT ==========
-const config = {
+// ============================================================
+// ✏️ KONFIGURASI MUDAH EDIT — UBAH DATA DI SINI SAJA
+// ============================================================
+const CONFIG = {
+  // Data Pasangan
   namaPria: "Reza Maulana Hakim",
   namaWanita: "Aulia Rahmadani Putri",
   inisialPria: "R",
@@ -183,6 +186,8 @@ const config = {
   gelarWanita: "S.Pd.",
   orangTuaPria: "Bapak H. Maulana Syaputra<br/>& Ibu Hj. Siti Rahayu",
   orangTuaWanita: "Bapak Drs. Rahmat Hidayat<br/>& Ibu Lestari Wulandari, M.M.",
+  
+  // Tanggal & Waktu Acara
   tanggalAcara: "2026-06-06T08:00:00",
   hari: "SABTU",
   tanggal: "6",
@@ -190,18 +195,26 @@ const config = {
   jamMulai: "08.00 WIB",
   jamResepsi: "11.00 — 17.00 WIB",
   hariJawa: "SABTU PON",
+  
+  // Lokasi Akad
   akadNama: "Masjid Baiturrohman Al-Hasanah",
   akadAlamat: "Jl. Kemang Raya No. 88, Bangka, Mampang Prapatan, Jakarta Selatan",
   akadWaktu: "🕗 08.00 — 10.00 WIB",
   akadMapLink: "https://maps.google.com/?q=Masjid+Baiturrohman+Jakarta",
+  
+  // Lokasi Resepsi
   resepsiNama: "Grand Ballroom The Ritz Jakarta",
   resepsiAlamat: "Jl. MH Thamrin Kav. 1, Gondangdia, Menteng, Jakarta Pusat",
   resepsiWaktu: "🕚 11.00 — 17.00 WIB",
   resepsiMapLink: "https://maps.google.com/?q=Grand+Ballroom+The+Ritz+Jakarta",
+  
+  // Galeri foto (letakkan di folder images/)
   foto1: "images/foto1.jpg",
   foto2: "images/foto2.jpg",
   foto3: "images/foto3.jpg",
   foto4: "images/foto4.jpg",
+  
+  // Rekening
   bank1Nama: "Bank BCA",
   bank1Sub: "PT Bank Central Asia Tbk.",
   bank1Nomor: "1234 5678 90",
@@ -210,79 +223,86 @@ const config = {
   bank2Sub: "Dompet Digital",
   bank2Nomor: "0812-3456-7890",
   bank2Pemilik: "a.n. Aulia Rahmadani Putri",
-  musikSrc: "sementara.mp3",
-  nomorWA: "6289517097989"
+  
+  // Musik (letakkan file musik di folder music/)
+  musikSrc: "music/dark-gold.mp3",
+  
+  // WhatsApp & Firebase
+  nomorWA: "6289517097989",
+  firebaseNode: "ucapan_template1"
 };
 
-// ========== TERAPKAN KONFIGURASI KE HTML ==========
-document.getElementById('cover-initial-pria').innerText = config.inisialPria;
-document.getElementById('cover-initial-wanita').innerText = config.inisialWanita;
-document.getElementById('mono-pria').innerText = config.inisialPria;
-document.getElementById('mono-wanita').innerText = config.inisialWanita;
-document.getElementById('nama-pria').innerText = config.namaPria;
-document.getElementById('nama-wanita').innerText = config.namaWanita;
-document.getElementById('hari').innerText = config.hari;
-document.getElementById('tanggal').innerText = config.tanggal;
-document.getElementById('bulan-tahun').innerText = config.bulanTahun;
-document.getElementById('waktu').innerText = config.jamMulai;
-document.getElementById('full-name-pria').innerHTML = config.namaPria + (config.gelarPria ? ", " + config.gelarPria : "");
-document.getElementById('son-of-pria').innerHTML = `Putra dari ${config.orangTuaPria}`;
-document.getElementById('full-name-wanita').innerHTML = config.namaWanita + (config.gelarWanita ? ", " + config.gelarWanita : "");
-document.getElementById('son-of-wanita').innerHTML = `Putri dari ${config.orangTuaWanita}`;
-document.getElementById('day-name').innerText = config.hariJawa;
-document.getElementById('day-num').innerText = config.tanggal;
-document.getElementById('month-year').innerText = config.bulanTahun;
-document.getElementById('akad-nama').innerText = config.akadNama;
-document.getElementById('akad-alamat').innerText = config.akadAlamat;
-document.getElementById('akad-waktu').innerHTML = config.akadWaktu;
-document.getElementById('akad-map').href = config.akadMapLink;
-document.getElementById('resepsi-nama').innerText = config.resepsiNama;
-document.getElementById('resepsi-alamat').innerText = config.resepsiAlamat;
-document.getElementById('resepsi-waktu').innerHTML = config.resepsiWaktu;
-document.getElementById('resepsi-map').href = config.resepsiMapLink;
-if(document.getElementById('foto1')) document.getElementById('foto1').src = config.foto1;
-if(document.getElementById('foto2')) document.getElementById('foto2').src = config.foto2;
-if(document.getElementById('foto3')) document.getElementById('foto3').src = config.foto3;
-if(document.getElementById('foto4')) document.getElementById('foto4').src = config.foto4;
-document.getElementById('gallery-caption').innerText = config.namaPria.split(' ')[0] + " & " + config.namaWanita.split(' ')[0];
-document.getElementById('closing-names').innerText = config.namaPria.split(' ')[0] + " & " + config.namaWanita.split(' ')[0];
-document.getElementById('bank1-nama').innerText = config.bank1Nama;
-document.getElementById('bank1-sub').innerText = config.bank1Sub;
-document.getElementById('norek-1').innerText = config.bank1Nomor;
-document.getElementById('bank1-owner').innerText = config.bank1Pemilik;
-document.getElementById('bank2-nama').innerText = config.bank2Nama;
-document.getElementById('bank2-sub').innerText = config.bank2Sub;
-document.getElementById('norek-2').innerText = config.bank2Nomor;
-document.getElementById('bank2-owner').innerText = config.bank2Pemilik;
+// ============================================================
+// TERAPKAN KONFIGURASI (TIDAK PERLU DIUBAH)
+// ============================================================
+document.getElementById('cover-initial-pria').innerText = CONFIG.inisialPria;
+document.getElementById('cover-initial-wanita').innerText = CONFIG.inisialWanita;
+document.getElementById('mono-pria').innerText = CONFIG.inisialPria;
+document.getElementById('mono-wanita').innerText = CONFIG.inisialWanita;
+document.getElementById('nama-pria').innerText = CONFIG.namaPria;
+document.getElementById('nama-wanita').innerText = CONFIG.namaWanita;
+document.getElementById('hari').innerText = CONFIG.hari;
+document.getElementById('tanggal').innerText = CONFIG.tanggal;
+document.getElementById('bulan-tahun').innerText = CONFIG.bulanTahun;
+document.getElementById('waktu').innerText = CONFIG.jamMulai;
+document.getElementById('full-name-pria').innerHTML = CONFIG.namaPria + (CONFIG.gelarPria ? ", " + CONFIG.gelarPria : "");
+document.getElementById('son-of-pria').innerHTML = `Putra dari ${CONFIG.orangTuaPria}`;
+document.getElementById('full-name-wanita').innerHTML = CONFIG.namaWanita + (CONFIG.gelarWanita ? ", " + CONFIG.gelarWanita : "");
+document.getElementById('son-of-wanita').innerHTML = `Putri dari ${CONFIG.orangTuaWanita}`;
+document.getElementById('day-name').innerText = CONFIG.hariJawa;
+document.getElementById('day-num').innerText = CONFIG.tanggal;
+document.getElementById('month-year').innerText = CONFIG.bulanTahun;
+document.getElementById('akad-nama').innerText = CONFIG.akadNama;
+document.getElementById('akad-alamat').innerText = CONFIG.akadAlamat;
+document.getElementById('akad-waktu').innerHTML = CONFIG.akadWaktu;
+document.getElementById('akad-map').href = CONFIG.akadMapLink;
+document.getElementById('resepsi-nama').innerText = CONFIG.resepsiNama;
+document.getElementById('resepsi-alamat').innerText = CONFIG.resepsiAlamat;
+document.getElementById('resepsi-waktu').innerHTML = CONFIG.resepsiWaktu;
+document.getElementById('resepsi-map').href = CONFIG.resepsiMapLink;
+if(document.getElementById('foto1')) document.getElementById('foto1').src = CONFIG.foto1;
+if(document.getElementById('foto2')) document.getElementById('foto2').src = CONFIG.foto2;
+if(document.getElementById('foto3')) document.getElementById('foto3').src = CONFIG.foto3;
+if(document.getElementById('foto4')) document.getElementById('foto4').src = CONFIG.foto4;
+document.getElementById('gallery-caption').innerText = CONFIG.namaPria.split(' ')[0] + " & " + CONFIG.namaWanita.split(' ')[0];
+document.getElementById('closing-names').innerText = CONFIG.namaPria.split(' ')[0] + " & " + CONFIG.namaWanita.split(' ')[0];
+document.getElementById('bank1-nama').innerText = CONFIG.bank1Nama;
+document.getElementById('bank1-sub').innerText = CONFIG.bank1Sub;
+document.getElementById('norek-1').innerText = CONFIG.bank1Nomor;
+document.getElementById('bank1-owner').innerText = CONFIG.bank1Pemilik;
+document.getElementById('bank2-nama').innerText = CONFIG.bank2Nama;
+document.getElementById('bank2-sub').innerText = CONFIG.bank2Sub;
+document.getElementById('norek-2').innerText = CONFIG.bank2Nomor;
+document.getElementById('bank2-owner').innerText = CONFIG.bank2Pemilik;
 const musicEl = document.getElementById('bg-music');
-if(musicEl) musicEl.src = config.musikSrc;
-const tglAcara = new Date(config.tanggalAcara);
+if(musicEl) musicEl.src = CONFIG.musikSrc;
+const tglAcara = new Date(CONFIG.tanggalAcara);
 const tglMulai = tglAcara.toISOString().replace(/-|:|\.\d+/g, '');
 const tglSelesai = new Date(tglAcara.getTime() + 6*3600000).toISOString().replace(/-|:|\.\d+/g, '');
-const calLink = `https://www.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+${encodeURIComponent(config.namaPria.split(' ')[0])}+%26+${encodeURIComponent(config.namaWanita.split(' ')[0])}&dates=${tglMulai}/${tglSelesai}&details=Akad+jam+${encodeURIComponent(config.jamMulai)}+di+${encodeURIComponent(config.akadNama)}%2C+Resepsi+jam+${encodeURIComponent(config.resepsiWaktu)}+di+${encodeURIComponent(config.resepsiNama)}&location=${encodeURIComponent(config.akadAlamat)}`;
+const calLink = `https://www.google.com/calendar/render?action=TEMPLATE&text=Pernikahan+${encodeURIComponent(CONFIG.namaPria.split(' ')[0])}+%26+${encodeURIComponent(CONFIG.namaWanita.split(' ')[0])}&dates=${tglMulai}/${tglSelesai}&details=Akad+jam+${encodeURIComponent(CONFIG.jamMulai)}+di+${encodeURIComponent(CONFIG.akadNama)}%2C+Resepsi+jam+${encodeURIComponent(CONFIG.resepsiWaktu)}+di+${encodeURIComponent(CONFIG.resepsiNama)}&location=${encodeURIComponent(CONFIG.akadAlamat)}`;
 document.getElementById('google-calender-link').href = calLink;
-const WEDDING_DATE = new Date(config.tanggalAcara);
-const NOMOR_WA = config.nomorWA;
+const WEDDING_DATE = new Date(CONFIG.tanggalAcara);
+const NOMOR_WA = CONFIG.nomorWA;
 
 // ========== PROTEKSI ==========
 document.addEventListener('contextmenu',function(e){e.preventDefault();return false;});
 document.addEventListener('keydown',function(e){if(e.key==='F12'||(e.ctrlKey&&e.shiftKey&&e.key==='I')||(e.ctrlKey&&e.key==='u')||(e.ctrlKey&&e.key==='s')){e.preventDefault();return false;}});
 
-// ========== FIREBASE & PAGINATION ==========
-const _fbApp  = firebase.initializeApp({
-  apiKey:            "AIzaSyAOOJW5lmYIbsmc_c7V7qmucUIprlUQGSQ",
-  authDomain:        "undangan-reza-aulia.firebaseapp.com",
-  databaseURL:       "https://undangan-reza-aulia-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId:         "undangan-reza-aulia",
-  storageBucket:     "undangan-reza-aulia.firebasestorage.app",
+// ========== FIREBASE ==========
+firebase.initializeApp({
+  apiKey: "AIzaSyAOOJW5lmYIbsmc_c7V7qmucUIprlUQGSQ",
+  authDomain: "undangan-reza-aulia.firebaseapp.com",
+  databaseURL: "https://undangan-reza-aulia-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "undangan-reza-aulia",
+  storageBucket: "undangan-reza-aulia.firebasestorage.app",
   messagingSenderId: "23338138608",
-  appId:             "1:23338138608:web:4a59bd8a138a394b25bb35"
+  appId: "1:23338138608:web:4a59bd8a138a394b25bb35"
 });
 const _db = firebase.database();
-const _wishRef = _db.ref('ucapan');
+const _wishRef = _db.ref(CONFIG.firebaseNode);
 
-let allWishes = [];       // menyimpan semua ucapan (array)
-let visibleCount = 10;    // jumlah yang ditampilkan
+let allWishes = [];
+let visibleCount = 10;
 
 function escapeHtml(str) {
   if (!str) return '';
@@ -291,10 +311,10 @@ function escapeHtml(str) {
 
 function formatTime(ts) {
   const diff = Math.floor((Date.now() - ts) / 60000);
-  if (diff < 1)  return 'Baru saja';
+  if (diff < 1) return 'Baru saja';
   if (diff < 60) return diff + ' menit lalu';
   const jam = Math.floor(diff / 60);
-  if (jam < 24)  return jam + ' jam lalu';
+  if (jam < 24) return jam + ' jam lalu';
   return Math.floor(jam / 24) + ' hari lalu';
 }
 
@@ -335,7 +355,7 @@ function renderWishes() {
       return;
     }
     allWishes = Object.values(data).sort((a, b) => b.timestamp - a.timestamp);
-    visibleCount = 10; // reset ke 10 setiap ada data baru (misal ada ucapan baru masuk)
+    visibleCount = 10;
     displayWishes();
   });
 }
@@ -365,7 +385,7 @@ function submitWish() {
   });
 }
 
-// ========== FUNGSI LAINNYA (countdown, confetti, RSVP, copy rekening, dll) ==========
+// ========== FUNGSI LAINNYA ==========
 let musicPlaying = false;
 function openInvitation() {
   const cover = document.getElementById('cover');
