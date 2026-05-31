@@ -168,6 +168,10 @@ main{opacity:0;transition:opacity .8s ease;}main.visible{opacity:1;}
   <section class="closing-section"><div class="reveal"><div class="gold-line-short"></div></div><div class="reveal d1" style="margin-top:20px"><span class="section-tag">DENGAN SEPENUH HATI</span></div><div class="closing-script reveal d2" id="closing-names">Reza & Aulia</div><div class="gold-line-short reveal d3" style="margin-bottom:20px"></div><div class="closing-verse reveal d3">Merupakan suatu kehormatan dan kebahagiaan bagi kami sekeluarga apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada putra-putri kami.</div><div class="closing-credit reveal d4">UNDANGAN DIGITAL DIBUAT OLEH<br/><a href="https://wa.me/629517097989" target="_blank">✦ REGYAG ✦</a></div></section>
 </main>
 
+<!-- Firebase SDK (Realtime Database) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
 <script>
 // ========== KONFIGURASI MUDAH EDIT ==========
 const config = {
@@ -207,9 +211,7 @@ const config = {
   bank2Nomor: "0812-3456-7890",
   bank2Pemilik: "a.n. Aulia Rahmadani Putri",
   musikSrc: "dankini.mp3",
-  nomorWA: "6289517097989",
-  // ⚠️ GANTI DENGAN URL WEB APP ANDA (hasil deploy dari script di atas)
-  googleSheetURL: "https://script.google.com/macros/s/AKfycbySCZTIh3MvUMFtRwXIc-2PErFN8KHOjOTpbFK8euncrMt-izm-idGYR3I-HjNdgTgD/exec"
+  nomorWA: "6289517097989"
 };
 
 // ========== TERAPKAN KONFIGURASI KE HTML ==========
@@ -261,75 +263,95 @@ const calLink = `https://www.google.com/calendar/render?action=TEMPLATE&text=Per
 document.getElementById('google-calender-link').href = calLink;
 const WEDDING_DATE = new Date(config.tanggalAcara);
 const NOMOR_WA = config.nomorWA;
-const GOOGLE_SHEET_URL = config.googleSheetURL;
 
 // ========== PROTEKSI (anti klik kanan & developer tools) ==========
 document.addEventListener('contextmenu',function(e){e.preventDefault();return false;});
 document.addEventListener('keydown',function(e){if(e.key==='F12'||(e.ctrlKey&&e.shiftKey&&e.key==='I')||(e.ctrlKey&&e.key==='u')||(e.ctrlKey&&e.key==='s')){e.preventDefault();return false;}});
 
-// ========== FUNGSI UCAPAN (Google Sheets) ==========
+// ========== FIREBASE REALTIME DATABASE — UCAPAN & DOA ==========
+// SDK Firebase (versi compat — bisa dipakai langsung tanpa bundler)
+const _fbApp  = firebase.initializeApp({
+  apiKey:            "AIzaSyAOOJW5lmYIbsmc_c7V7qmucUIprlUQGSQ",
+  authDomain:        "undangan-reza-aulia.firebaseapp.com",
+  databaseURL:       "https://undangan-reza-aulia-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId:         "undangan-reza-aulia",
+  storageBucket:     "undangan-reza-aulia.firebasestorage.app",
+  messagingSenderId: "23338138608",
+  appId:             "1:23338138608:web:4a59bd8a138a394b25bb35"
+});
+const _db = firebase.database();
+const _wishRef = _db.ref('ucapan'); // data tersimpan di node "ucapan"
+
 function escapeHtml(str) {
   if (!str) return '';
-  return str.replace(/[&<>]/g, function(m) {
-    if (m === '&') return '&amp;';
-    if (m === '<') return '&lt;';
-    if (m === '>') return '&gt;';
-    return m;
-  });
+  return str.replace(/[&<>]/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;'}[m]||m));
 }
 
-function loadWishes() {
+function formatTime(ts) {
+  const diff = Math.floor((Date.now() - ts) / 60000);
+  if (diff < 1)  return 'Baru saja';
+  if (diff < 60) return diff + ' menit lalu';
+  const jam = Math.floor(diff / 60);
+  if (jam < 24)  return jam + ' jam lalu';
+  return Math.floor(jam / 24) + ' hari lalu';
+}
+
+function renderWishes() {
+  // Dengarkan perubahan realtime — otomatis update tanpa refresh
   const wishList = document.getElementById('wish-list');
-  wishList.innerHTML = '<div style="text-align:center; padding:20px;">Memuat ucapan...</div>';
-  fetch(GOOGLE_SHEET_URL + '?action=getWishes')
-    .then(response => response.json())
-    .then(data => {
-      wishList.innerHTML = '';
-      if (!data || data.length === 0) {
-        wishList.innerHTML = '<div class="wish-item" style="text-align:center;">Belum ada ucapan. Jadilah yang pertama mengirim doa!</div>';
-        return;
-      }
-      data.forEach(wish => {
-        const item = document.createElement('div');
-        item.className = 'wish-item';
-        item.innerHTML = `<div class="wish-item-name">${escapeHtml(wish.name.toUpperCase())} <span style="font-size:7px; opacity:0.6;">• ${escapeHtml(wish.time)}</span></div>
-                          <div class="wish-item-text">"${escapeHtml(wish.text)}"</div>`;
-        wishList.appendChild(item);
-      });
-    })
-    .catch(err => {
-      console.error('Load wishes error:', err);
-      wishList.innerHTML = '<div class="wish-item" style="text-align:center;">Gagal memuat ucapan. Periksa koneksi atau coba lagi nanti.</div>';
+  wishList.innerHTML = '<div style="text-align:center;padding:20px;color:var(--text-muted);font-size:11px">Memuat ucapan…</div>';
+
+  _wishRef.orderByChild('timestamp').on('value', snapshot => {
+    wishList.innerHTML = '';
+    const data = snapshot.val();
+
+    if (!data) {
+      wishList.innerHTML = '<div class="wish-item" style="text-align:center;color:var(--text-muted)">Belum ada ucapan. Jadilah yang pertama! 🤍</div>';
+      return;
+    }
+
+    // Ubah objek Firebase jadi array, urutkan terbaru di atas
+    const arr = Object.values(data).sort((a, b) => b.timestamp - a.timestamp);
+
+    arr.forEach(wish => {
+      const item = document.createElement('div');
+      item.className = 'wish-item';
+      item.innerHTML = `<div class="wish-item-name">${escapeHtml(wish.name)} <span style="font-size:7px;opacity:.6">• ${formatTime(wish.timestamp)}</span></div>
+                        <div class="wish-item-text">"${escapeHtml(wish.text)}"</div>`;
+      wishList.appendChild(item);
     });
+  });
 }
 
 function submitWish() {
   const name = document.getElementById('wish-name').value.trim();
   const text = document.getElementById('wish-text').value.trim();
   if (!name || !text) { alert('Mohon isi nama dan ucapan Anda.'); return; }
+
   const btn = document.querySelector('.wish-submit');
-  const originalText = btn.textContent;
-  btn.textContent = 'MENGIRIM...';
+  btn.textContent = 'MENGIRIM…';
   btn.disabled = true;
-  const formData = new FormData();
-  formData.append('type', 'wish');
-  formData.append('name', name);
-  formData.append('text', text);
-  fetch(GOOGLE_SHEET_URL, { method: 'POST', body: formData, mode: 'no-cors' })
-    .then(() => {
-      document.getElementById('wish-name').value = '';
-      document.getElementById('wish-text').value = '';
-      btn.textContent = originalText;
-      btn.disabled = false;
-      loadWishes(); // refresh daftar ucapan
-      const waText = `Halo pengantin! Saya *${name}* ingin menyampaikan doa & ucapan:\n\n_"${text}"_`;
-      window.open(`https://wa.me/${NOMOR_WA}?text=${encodeURIComponent(waText)}`, '_blank');
-    })
-    .catch(err => {
-      alert('Maaf, terjadi kesalahan. Silakan coba lagi.');
-      btn.textContent = originalText;
-      btn.disabled = false;
-    });
+
+  // Simpan ke Firebase — push() otomatis buat ID unik
+  _wishRef.push({
+    name:      name.toUpperCase(),
+    text:      text,
+    timestamp: Date.now()
+  })
+  .then(() => {
+    document.getElementById('wish-name').value = '';
+    document.getElementById('wish-text').value = '';
+    btn.textContent = 'KIRIM UCAPAN ✦';
+    btn.disabled = false;
+    // Notif WA ke pengantin
+    const waText = `Halo pengantin! Saya *${name}* ingin menyampaikan doa & ucapan:\n\n_"${text}"_`;
+    window.open(`https://wa.me/${NOMOR_WA}?text=${encodeURIComponent(waText)}`, '_blank');
+  })
+  .catch(() => {
+    alert('Gagal mengirim. Periksa koneksi internet Anda.');
+    btn.textContent = 'KIRIM UCAPAN ✦';
+    btn.disabled = false;
+  });
 }
 
 // ========== FUNGSI LAINNYA (countdown, confetti, RSVP, copy rekening, dll) ==========
@@ -343,7 +365,6 @@ function openInvitation() {
   main.classList.add('visible');
   setTimeout(() => {
     revealOnScroll();
-    loadWishes();
   }, 300);
   const music = document.getElementById('bg-music');
   const btn = document.getElementById('music-btn');
@@ -365,11 +386,12 @@ updateCountdown();setInterval(updateCountdown,1000);
 function revealOnScroll(){const els=document.querySelectorAll('.reveal'),io=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});},{threshold:0.12});els.forEach(el=>io.observe(el));}
 function selectRsvp(btn,val){document.querySelectorAll('.choice-btn').forEach(b=>{b.style.background='transparent';b.style.boxShadow='none';});btn.style.background=val==='hadir'?'rgba(197,158,70,0.15)':'rgba(255,255,255,0.06)';document.getElementById('rsvp-status').value=val;}
 function submitRsvp(){const name=document.getElementById('rsvp-name').value.trim(),status=document.getElementById('rsvp-status').value,count=document.getElementById('rsvp-count').value;if(!name){alert('Mohon masukkan nama Anda.');return;}if(!status){alert('Mohon pilih konfirmasi kehadiran.');return;}if(!count){alert('Mohon pilih jumlah tamu.');return;}
-const btn=document.querySelector('.rsvp-submit');btn.textContent='MENGIRIM...';btn.disabled=true;const formData=new FormData();formData.append('type','rsvp');formData.append('name',name);formData.append('status',status);formData.append('count',count);
-fetch(GOOGLE_SHEET_URL,{method:'POST',body:formData,mode:'no-cors'}).then(()=>{document.getElementById('rsvp-form').style.display='none';document.getElementById('rsvp-success').style.display='block';const waText=`Halo, saya *${name}*. Mengkonfirmasi bahwa saya *${status}* hadir dengan jumlah tamu *${count}* orang.`;window.open(`https://wa.me/${NOMOR_WA}?text=${encodeURIComponent(waText)}`,'_blank');}).catch(()=>{alert('Maaf, terjadi kesalahan. Silakan coba lagi.');btn.textContent='KIRIM KONFIRMASI';btn.disabled=false;});}
+document.getElementById('rsvp-form').style.display='none';document.getElementById('rsvp-success').style.display='block';
+const waText=`Halo, saya *${name}*. Mengkonfirmasi bahwa saya *${status}* hadir dengan jumlah tamu *${count}* orang.`;window.open(`https://wa.me/${NOMOR_WA}?text=${encodeURIComponent(waText)}`,'_blank');}
 function copyRek(elId,btn){const val=document.getElementById(elId).textContent.replace(/\s/g,'');navigator.clipboard.writeText(val).then(()=>{const orig=btn.textContent;btn.textContent='TERSALIN!';setTimeout(()=>btn.textContent=orig,1500);}).catch(()=>{const el=document.getElementById(elId);const range=document.createRange();range.selectNodeContents(el);window.getSelection().removeAllRanges();window.getSelection().addRange(range);document.execCommand('copy');const orig=btn.textContent;btn.textContent='TERSALIN!';setTimeout(()=>btn.textContent=orig,1500);});}
 
 document.getElementById('openInvBtn').addEventListener('click', openInvitation);
+renderWishes();
 </script>
 </body>
 </html>
