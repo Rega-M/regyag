@@ -539,7 +539,7 @@
         </div>
 
         <div class="kontak-form-wrapper reveal-right">
-          <form class="kontak-form" action="https://wa.me/6289517097989" method="GET" target="_blank">
+          <form class="kontak-form" id="kontakForm">
             <h3 class="form-title">Kirim Pesan Cepat</h3>
             <p class="form-subtitle">Isi formulir di bawah ini untuk konsultasi langsung via WhatsApp.</p>
             
@@ -565,7 +565,7 @@
               <textarea id="message" name="text_pesan" rows="4" placeholder="Tuliskan detail pesanan atau pertanyaan Anda di sini..." required></textarea>
             </div>
 
-            <button type="submit" class="form-submit-btn">
+            <button type="button" onclick="kirimWA()" class="form-submit-btn">
               <span>Kirim via WhatsApp</span>
               <span class="btn-arrow">→</span>
             </button>
