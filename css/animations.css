@@ -249,15 +249,11 @@
 }
 
 @keyframes bounce {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-8px);
-  }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
-
-.bounce-hover:hover {
+/* FIXED: Animasi bounce aktif saat KARTU di-hover, bukan saat ikonnya di-hover */
+.layanan-card:hover .bounce-hover {
   animation: bounce 0.5s ease;
 }
 
@@ -395,19 +391,17 @@
 }
 
 /* ====================================================
-   14. HOVER ANIMATION UNTUK CARD (DI CSS UTAMA JUGA ADA, 
-       TAPI INI VERSI PREMIUMNYA)
+   ANIMASI & MICRO-INTERACTIONS
    ==================================================== */
 .hover-lift {
-  transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1), 
-              box-shadow 0.3s ease;
+  transition: transform 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1), box-shadow 0.3s ease, border-color 0.3s ease;
 }
 
 .hover-lift:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+  border-color: var(--color-primary);
 }
-
 .hover-scale {
   transition: transform 0.3s ease;
 }
@@ -458,6 +452,11 @@
    RESPONSIF: KURANGI ANIMASI PADA PERANGKAT YANG
    MENGUTAMAKAN PERFORMANCE ATAU PREFER REDUCED MOTION
    ==================================================== */
+@media (max-width: 768px) {
+  .layanan-grid {
+    grid-template-columns: 1fr; /* Memaksa tampilan menjadi 1 kolom penuh di layar HP */
+  }
+}
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -467,7 +466,8 @@
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
-  
+
+
   .reveal,
   .reveal-left,
   .reveal-right,
@@ -502,6 +502,7 @@
    ==================================================== */
 .btn-hover-pop {
   transition: transform 0.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+  transform-origin: left center; /* Memastikan scale membesar ke arah kanan */
 }
 
 .btn-hover-pop:hover {

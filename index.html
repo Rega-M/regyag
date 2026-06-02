@@ -3,27 +3,60 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
   <!-- ============================================
-       JUDUL & META SEO
+       SEO & METADATA DASAR
        ============================================ -->
-  <title>REGYAG – Undangan Digital, Cetak & Sablon Premium</title>
-  <meta name="description" content="Jasa undangan digital, undangan cetak, sablon, cetak banner dan berbagai kebutuhan printing lainnya. Kualitas terbaik, harga terjangkau." />
-  <meta name="keywords" content="undangan digital, undangan cetak, sablon, cetak banner, printing, REGYAG" />
-  <meta name="author" content="REGYAG" />
+  <title>REGYAG – Jasa Undangan Digital, Cetak & Sablon Premium</title>
+  <meta name="description" content="REGYAG menyediakan layanan undangan digital interaktif, undangan cetak premium, sablon kaos komunitas, hingga cetak banner kilat. Kualitas terbaik dengan harga kompetitif." />
+  <meta name="keywords" content="undangan digital, undangan cetak, sablon kaos, cetak banner, cetak stiker, printing premium, REGYAG" />
+  <meta name="author" content="REGYAG Creative" />
+  <meta name="robots" content="index, follow" />
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="REGYAG – Undangan & Cetak Digital" />
-  <meta property="og:description" content="Jasa undangan digital, cetak, sablon, dan banner terpercaya." />
+  <!-- Integrasi Warna Brand pada Browser Mobile (Chrome / Safari) -->
+  <meta name="theme-color" content="#3B82F6" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+  <!-- ============================================
+       OPEN GRAPH / FACEBOOK SOCIAL PREVIEW (Penting untuk Share Link)
+       ============================================ -->
   <meta property="og:type" content="website" />
+  <meta property="og:title" content="REGYAG – Cetak Impianmu, Wujudkan Momenmu" />
+  <meta property="og:description" content="Solusi cetak & undangan digital premium. Mulai dari undangan link interaktif hingga sablon kaos distro berkualitas." />
+  <meta property="og:url" content="https://regyag.com/" />
+  <meta property="og:site_name" content="REGYAG Creative" />
+  <!-- Ganti tautan di bawah dengan URL gambar thumbnail asli website Anda nantinya -->
+  <meta property="og:image" content="https://regyag.com/assets/img/og-preview.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
 
-  <!-- Google Fonts -->
+  <!-- ============================================
+       TWITTER CARD PREVIEW
+       ============================================ -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="REGYAG – Undangan Digital & Printing Premium" />
+  <meta name="twitter:description" content="Jasa undangan digital, cetak, sablon, dan banner terpercaya dengan hasil maksimal." />
+  <meta name="twitter:image" content="https://regyag.com/assets/img/og-preview.jpg" />
+
+  <!-- ============================================
+       FONTS & PRECONNECT (OPTIMASI KECEPATAN MUAT)
+       ============================================ -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet" />
 
-  <!-- CSS Utama -->
+  <!-- ============================================
+       FAVICON KUSTOM (PREMIUM SVG)
+       ============================================ -->
+  <!-- Emojinya diubah dari Cincin (💍) menjadi Kilauan/Sparkle (✨) 
+       agar lebih netral dan mencakup lini bisnis Sablon & Banner, bukan hanya pernikahan saja -->
+  <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✨</text></svg>">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <!-- ============================================
+       CSS STYLESHEETS
+       ============================================ -->
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/animations.css" />
 </head>
@@ -76,31 +109,24 @@
         </a>
         <a href="#layanan" class="btn-ghost">Lihat Layanan</a>
       </div>
-      <div class="hero-stats animate-in delay-4">
-        <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Pelanggan Puas</span></div>
-        <div class="stat-divider"></div>
-        <div class="stat"><span class="stat-num">1200+</span><span class="stat-label">Proyek Selesai</span></div>
-        <div class="stat-divider"></div>
-        <div class="stat"><span class="stat-num">4.9★</span><span class="stat-label">Rating Google</span></div>
-      </div>
     </div>
   </section>
-
   <!-- ============================================
-       LAYANAN SECTION
-       ============================================ -->
+     LAYANAN SECTION
+     ============================================ -->
   <section class="layanan" id="layanan">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Apa yang Kami Tawarkan</span>
+      <div class="section-header reveal slide-up">
+        <span class="section-tag badge-pulse">Apa yang Kami Tawarkan</span>
         <h2 class="section-title">Layanan <em>Unggulan</em> Kami</h2>
         <p class="section-desc">Semua kebutuhan cetak dan desain Anda kami tangani dengan profesional dan cepat.</p>
       </div>
-
+      
       <div class="layanan-grid stagger-container">
-        <!-- Kartu 1: Undangan Digital (dengan tombol demo) -->
-        <div class="layanan-card stagger-item">
-          <div class="card-icon">💌</div>
+        
+        <!-- Kartu 1: Undangan Digital (AKTIF) -->
+        <div class="layanan-card hover-lift stagger-item">
+          <div class="card-icon bounce-hover">💌</div>
           <h3>Undangan Digital</h3>
           <p>Undangan pernikahan, ulang tahun, dan acara lainnya dalam format digital interaktif.</p>
           <ul class="card-features">
@@ -109,17 +135,33 @@
             <li>Musik pengiring</li>
             <li>RSVP online</li>
           </ul>
-          <div style="display: flex; flex-direction: column; gap: 6px;">
-            <a href="undangan/template1/" target="_blank" class="card-cta">🎬 Demo Dark Gold →</a>
-            <a href="undangan/template2/" target="_blank" class="card-cta">🌿 Demo Botanical Sage →</a>
-            <a href="undangan/template3/" target="_blank" class="card-cta">🍂 Demo Rustic Vintage →</a>
-            <a href="https://wa.me/6289517097989?text=Halo%2C%20saya%20mau%20tanya%20Undangan%20Digital" class="card-cta">📱 Pesan Sekarang →</a>
+          <div style="display: flex; flex-direction: column; gap: 8px; margin-top: auto;">
+            <a href="undangan/template1/" target="_blank" class="card-cta btn-hover-pop">🎬 Demo Dark Gold &rarr;</a>
+            <a href="undangan/template2/" target="_blank" class="card-cta btn-hover-pop">🌿 Demo Botanical Sage &rarr;</a>
+            <a href="undangan/template3/" target="_blank" class="card-cta btn-hover-pop">🍂 Demo Rustic Vintage &rarr;</a>
+            <a href="https://wa.me/6289517097989?text=Halo%2C%20saya%20mau%20tanya%20Undangan%20Digital" class="card-cta btn-hover-pop" target="_blank" rel="noopener">📱 Pesan Sekarang &rarr;</a>
           </div>
         </div>
 
-        <!-- Kartu 2: Undangan Cetak (Featured) -->
-        <div class="layanan-card featured stagger-item">
-          <div class="card-badge">⭐ Terlaris</div>
+        <!-- Kartu 2: Sablon (AKTIF) -->
+        <div class="layanan-card hover-lift stagger-item">
+          <div class="card-icon bounce-hover">👕</div>
+          <h3>Sablon</h3>
+          <p>Sablon kaos, jaket, tas, topi, dan berbagai media tekstil lainnya. Hasil tajam, tahan lama.</p>
+          <ul class="card-features">
+            <li>DTF / Manual</li>
+            <li>Full color</li>
+            <li>Tahan cuci</li>
+            <li>Min. 12 pcs</li>
+          </ul>
+          <div style="margin-top: auto;">
+            <a href="https://wa.me/6289517097989?text=Halo%2C%20saya%20mau%20tanya%20Sablon" class="card-cta btn-hover-pop" target="_blank" rel="noopener">Pesan Sekarang &rarr;</a>
+          </div>
+        </div>
+
+        <!-- Kartu 3: Undangan Cetak (COMING SOON) -->
+        <div class="layanan-card coming-soon hover-lift stagger-item">
+          <div class="card-badge badge-soon">⏳ Segera Hadir</div>
           <div class="card-icon">📄</div>
           <h3>Undangan Cetak</h3>
           <p>Undangan fisik berkualitas tinggi dengan berbagai pilihan kertas, finishing, dan ukuran.</p>
@@ -129,25 +171,14 @@
             <li>Amplop gratis</li>
             <li>Min. 50 pcs</li>
           </ul>
-          <a href="https://wa.me/6289517097989?text=Halo%2C%20saya%20mau%20tanya%20Undangan%20Cetak" class="card-cta" target="_blank">Pesan Sekarang →</a>
+          <div style="margin-top: auto;">
+            <button class="card-cta btn-soon" disabled>Coming Soon</button>
+          </div>
         </div>
 
-        <!-- Kartu 3: Sablon -->
-        <div class="layanan-card stagger-item">
-          <div class="card-icon">👕</div>
-          <h3>Sablon</h3>
-          <p>Sablon kaos, jaket, tas, topi, dan berbagai media tekstil lainnya. Hasil tajam, tahan lama.</p>
-          <ul class="card-features">
-            <li>DTF / Manual</li>
-            <li>Full color</li>
-            <li>Tahan cuci</li>
-            <li>Min. 12 pcs</li>
-          </ul>
-          <a href="https://wa.me/6289517097989?text=Halo%2C%20saya%20mau%20tanya%20Sablon" class="card-cta" target="_blank">Pesan Sekarang →</a>
-        </div>
-
-        <!-- Kartu 4: Cetak Banner -->
-        <div class="layanan-card stagger-item">
+        <!-- Kartu 4: Cetak Banner (COMING SOON) -->
+        <div class="layanan-card coming-soon hover-lift stagger-item">
+          <div class="card-badge badge-soon">⏳ Segera Hadir</div>
           <div class="card-icon">🖼️</div>
           <h3>Cetak Banner</h3>
           <p>Banner, spanduk, baliho, roll banner, backdrop, dan X-banner ukuran custom.</p>
@@ -157,11 +188,14 @@
             <li>Semua ukuran</li>
             <li>Termasuk eyelet</li>
           </ul>
-          <a href="https://wa.me/6289517097989?text=Halo%2C%20saya%20mau%20tanya%20Cetak%20Banner" class="card-cta" target="_blank">Pesan Sekarang →</a>
+          <div style="margin-top: auto;">
+            <button class="card-cta btn-soon" disabled>Coming Soon</button>
+          </div>
         </div>
 
-        <!-- Kartu 5: Stiker & Label -->
-        <div class="layanan-card stagger-item">
+        <!-- Kartu 5: Stiker & Label (COMING SOON) -->
+        <div class="layanan-card coming-soon hover-lift stagger-item">
+          <div class="card-badge badge-soon">⏳ Segera Hadir</div>
           <div class="card-icon">🏷️</div>
           <h3>Stiker &amp; Label</h3>
           <p>Stiker produk, label kemasan, stiker cutting, dan stiker vinyl untuk branding bisnis Anda.</p>
@@ -171,11 +205,14 @@
             <li>Glossy/Matte</li>
             <li>Harga satuan</li>
           </ul>
-          <a href="https://wa.me/6289517097989?text=Halo%2C%20saya%20mau%20tanya%20Stiker%20dan%20Label" class="card-cta" target="_blank">Pesan Sekarang →</a>
+          <div style="margin-top: auto;">
+            <button class="card-cta btn-soon" disabled>Coming Soon</button>
+          </div>
         </div>
 
-        <!-- Kartu 6: Desain & Lainnya -->
-        <div class="layanan-card stagger-item">
+        <!-- Kartu 6: Desain & Lainnya (COMING SOON) -->
+        <div class="layanan-card coming-soon hover-lift stagger-item">
+          <div class="card-badge badge-soon">⏳ Segera Hadir</div>
           <div class="card-icon">✨</div>
           <h3>Desain &amp; Lainnya</h3>
           <p>Jasa desain grafis, packaging, kartu nama, kop surat, dan kebutuhan cetak custom.</p>
@@ -185,68 +222,65 @@
             <li>Nota / Kwitansi</li>
             <li>Request bebas</li>
           </ul>
-          <a href="https://wa.me/6289517097989?text=Halo%2C%20saya%20mau%20tanya%20layanan%20lainnya" class="card-cta" target="_blank">Tanya Dulu →</a>
+          <div style="margin-top: auto;">
+            <button class="card-cta btn-soon" disabled>Coming Soon</button>
+          </div>
         </div>
+
       </div>
     </div>
   </section>
-
   <!-- ============================================
-       KEUNGGULAN / WHY US
-       ============================================ -->
-  <section class="keunggulan">
+     KEUNGGULAN SECTION
+     ============================================ -->
+  <section class="keunggulan" id="keunggulan">
     <div class="container">
-      <div class="keunggulan-inner">
-        <div class="keunggulan-text reveal-left">
-          <span class="section-tag">Mengapa REGYAG?</span>
-          <h2 class="section-title">Kualitas yang<br /><em>Bicara Sendiri</em></h2>
-          <p>Kami bukan sekadar jasa cetak biasa. Setiap proyek dikerjakan dengan dedikasi penuh dan kontrol kualitas ketat.</p>
-          <div class="keunggulan-list">
-            <div class="keunggulan-item">
-              <div class="k-icon">⚡</div>
-              <div><strong>Proses Cepat</strong><p>Estimasi 1–3 hari kerja, siap kirim ke seluruh Indonesia.</p></div>
-            </div>
-            <div class="keunggulan-item">
-              <div class="k-icon">💎</div>
-              <div><strong>Kualitas Premium</strong><p>Bahan berkualitas, mesin modern, warna akurat.</p></div>
-            </div>
-            <div class="keunggulan-item">
-              <div class="k-icon">💬</div>
-              <div><strong>Revisi Gratis</strong><p>Sampai Anda puas sebelum proses cetak.</p></div>
-            </div>
-            <div class="keunggulan-item">
-              <div class="k-icon">🛡️</div>
-              <div><strong>Terjamin & Terpercaya</strong><p>Ratusan pelanggan setia dengan ulasan bintang lima.</p></div>
-            </div>
-          </div>
+      <div class="section-header reveal slide-up">
+        <span class="section-tag badge-pulse">Mengapa Memilih Kami</span>
+        <h2 class="section-title">Keunggulan <em>Regyag</em></h2>
+        <p class="section-desc">Kami berkomitmen memberikan hasil terbaik dengan pelayanan yang memuaskan untuk setiap klien kami.</p>
+      </div>
+      <div class="keunggulan-grid stagger-container">
+        <!-- Item 1 -->
+        <div class="keunggulan-item hover-lift stagger-item">
+          <div class="keunggulan-icon bounce-hover">💎</div>
+          <h3>Kualitas Premium</h3>
+          <p>Menggunakan bahan dan tinta terbaik untuk memastikan hasil cetak tajam, awet, dan profesional.</p>
         </div>
-        <div class="keunggulan-visual reveal-right">
-          <div class="visual-card vc-1">
-            <div class="vc-icon">📬</div><span>Undangan Digital</span><small>Dikirim via link</small>
-          </div>
-          <div class="visual-card vc-2">
-            <div class="vc-icon">🖨️</div><span>Cetak Kilat</span><small>1–3 hari kerja</small>
-          </div>
-          <div class="visual-card vc-3">
-            <div class="vc-icon">⭐</div><span>Rating 4.9</span><small>500+ pelanggan</small>
-          </div>
-          <div class="visual-glow"></div>
+        <!-- Item 2 -->
+        <div class="keunggulan-item hover-lift stagger-item">
+          <div class="keunggulan-icon bounce-hover">⚡</div>
+          <h3>Pengerjaan Cepat</h3>
+          <p>Proses produksi efisien dan tepat waktu sesuai dengan tenggat waktu yang telah disepakati.</p>
+        </div>
+        <!-- Item 3 -->
+        <div class="keunggulan-item hover-lift stagger-item">
+          <div class="keunggulan-icon bounce-hover">💰</div>
+          <h3>Harga Kompetitif</h3>
+          <p>Memberikan penawaran harga terbaik yang sebanding dengan kualitas tinggi yang Anda dapatkan.</p>
+        </div>
+        <!-- Item 4 -->
+        <div class="keunggulan-item hover-lift stagger-item">
+          <div class="keunggulan-icon bounce-hover">🤝</div>
+          <h3>Pelayanan Ramah</h3>
+          <p>Tim kami siap berdiskusi dan membantu merealisasikan ide desain sesuai kebutuhan Anda.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ============================================
-       PORTOFOLIO SECTION
+       PORTOFOLIO SECTION (MODERN & RESPONSIVE)
        ============================================ -->
   <section class="portofolio" id="portofolio">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-tag">Hasil Karya Kami</span>
         <h2 class="section-title">Portofolio <em>Pilihan</em></h2>
-        <p class="section-desc">Sebagian kecil dari ratusan proyek yang telah kami kerjakan.</p>
+        <p class="section-desc">Sebagian kecil dari ratusan proyek yang telah kami kerjakan dengan sepenuh hati.</p>
       </div>
 
+      <!-- Filter Menu Modern -->
       <div class="porto-filter reveal">
         <button class="filter-btn active" data-filter="all">Semua</button>
         <button class="filter-btn" data-filter="digital">Digital</button>
@@ -255,236 +289,346 @@
         <button class="filter-btn" data-filter="banner">Banner</button>
       </div>
 
-      <div class="porto-grid stagger-container">
-        <!-- Template 1: Dark Gold -->
-        <div class="porto-card stagger-item" data-cat="digital">
-          <a href="undangan/template1/" target="_blank" style="text-decoration: none; color: inherit;">
-            <div class="porto-img porto-placeholder" style="background: #0a0704; border-bottom: 2px solid #C59E46; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-              <div style="font-size: 2rem; color: #C59E46; text-shadow: 0 0 10px rgba(197,158,70,0.5);">✦</div>
-              <div style="font-weight: 800; font-size: 1rem; color: #EDE0C8;">Undangan Digital</div>
-              <div style="font-size: 0.65rem; color: #C59E46;">✦ Dark Gold ✦</div>
-            </div>
-            <div class="porto-info">
-              <span class="porto-cat">Digital</span>
-              <h4>Template Dark Gold</h4>
-              <p style="font-size: 0.8rem; color: var(--color-text-muted);">Mewah, cinematic, musik latar, countdown, RSVP, ucapan realtime.</p>
-            </div>
-          </a>
-        </div>
-
-        <!-- Template 2: Botanical Sage -->
-        <div class="porto-card stagger-item" data-cat="digital">
-          <a href="undangan/template2/" target="_blank" style="text-decoration: none; color: inherit;">
-            <div class="porto-img porto-placeholder" style="background: #6b7c5e; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-              <div style="font-size: 2rem;">🌿</div>
-              <div style="font-weight: 800; font-size: 1rem; color: #fff;">Undangan Digital</div>
-              <div style="font-size: 0.65rem; color: #e8ede0;">✦ Botanical Sage ✦</div>
-            </div>
-            <div class="porto-info">
-              <span class="porto-cat">Digital</span>
-              <h4>Template Botanical Sage</h4>
-              <p style="font-size: 0.8rem; color: var(--color-text-muted);">Natural, elegan, animasi daun, galeri masonry, RSVP, ucapan realtime.</p>
-            </div>
-          </a>
-        </div>
-
-        <!-- Template 3: Rustic Vintage -->
-        <div class="porto-card stagger-item" data-cat="digital">
-          <a href="undangan/template3/" target="_blank" style="text-decoration: none; color: inherit;">
-            <div class="porto-img porto-placeholder" style="background: #4a2e1a; display: flex; align-items: center; justify-content: center; flex-direction: column;">
-              <div style="font-size: 2rem;">🍂</div>
-              <div style="font-weight: 800; font-size: 1rem; color: #f2ead8;">Undangan Digital</div>
-              <div style="font-size: 0.65rem; color: #c8a96e;">✦ Rustic Vintage ✦</div>
-            </div>
-            <div class="porto-info">
-              <span class="porto-cat">Digital</span>
-              <h4>Template Rustic Vintage</h4>
-              <p style="font-size: 0.8rem; color: var(--color-text-muted);">Rustic, elegan, loading screen, parallax, galeri masonry, RSVP, ucapan realtime.</p>
-            </div>
-          </a>
-        </div>
-
-        <!-- Kartu portofolio lainnya -->
-        <div class="porto-card stagger-item" data-cat="cetak">
-          <div class="porto-img porto-placeholder" style="background: linear-gradient(135deg,#a18cd1,#fbc2eb);">
-            <span>📄 Undangan Cetak<br/>Soft Cover Premium</span>
-          </div>
-          <div class="porto-info"><span class="porto-cat">Cetak</span><h4>Undangan Hardcover</h4></div>
-        </div>
-        <div class="porto-card stagger-item" data-cat="sablon">
-          <div class="porto-img porto-placeholder" style="background: linear-gradient(135deg,#84fab0,#8fd3f4);">
-            <span>👕 Sablon Kaos<br/>Event Komunitas</span>
-          </div>
-          <div class="porto-info"><span class="porto-cat">Sablon</span><h4>Kaos Event DTF</h4></div>
-        </div>
-        <div class="porto-card stagger-item" data-cat="banner">
-          <div class="porto-img porto-placeholder" style="background: linear-gradient(135deg,#fddb92,#d1fdff);">
-            <span>🖼️ Banner Outdoor<br/>3x1m Full Color</span>
-          </div>
-          <div class="porto-info"><span class="porto-cat">Banner</span><h4>Banner Outdoor</h4></div>
-        </div>
-        <div class="porto-card stagger-item" data-cat="cetak">
-          <div class="porto-img porto-placeholder" style="background: linear-gradient(135deg,#667eea,#764ba2);">
-            <span>🏷️ Stiker Label<br/>Produk UMKM</span>
-          </div>
-          <div class="porto-info"><span class="porto-cat">Cetak</span><h4>Label Produk Custom</h4></div>
-        </div>
+      <!-- Grid Portofolio -->
+      <div class="porto-grid stagger-container" id="portfolio-container">
+        <!-- JavaScript akan otomatis mengisi kartu di sini -->
       </div>
     </div>
   </section>
 
   <!-- ============================================
-       HARGA SECTION
+       PRICING SECTION (MODERN & RESPONSIVE)
        ============================================ -->
-  <section class="harga" id="harga">
+  <section class="pricing" id="harga">
     <div class="container">
       <div class="section-header reveal">
         <span class="section-tag">Investasi Terbaik</span>
-        <h2 class="section-title">Paket <em>Harga</em></h2>
-        <p class="section-desc">Harga transparan, tidak ada biaya tersembunyi. Sudah termasuk desain & revisi.</p>
+        <h2 class="section-title">Pilihan <em>Paket & Harga</em></h2>
+        <p class="section-desc">Transparan, terjangkau, dan dirancang khusus untuk memberikan nilai maksimal bagi kebutuhan Anda.</p>
       </div>
 
-      <div class="harga-grid stagger-container">
-        <div class="harga-card stagger-item">
-          <div class="harga-header">
-            <span class="harga-label">Undangan Digital</span>
-            <div class="harga-price"><span class="currency">Rp</span><span class="amount">75.000</span></div>
-            <span class="harga-note">/ desain</span>
+      <!-- Grid Harga -->
+      <div class="pricing-grid stagger-container">
+        
+        <!-- Paket 1: Basic -->
+        <div class="pricing-card stagger-item">
+          <div class="pricing-header">
+            <span class="pricing-icon">📱</span>
+            <h3>Digital Basic</h3>
+            <p class="pricing-desc">Cocok untuk acara sederhana & ringkas</p>
+            <div class="price-box">
+              <span class="currency">Rp</span>
+              <span class="price">99</span>
+              <span class="period">.000</span>
+            </div>
           </div>
-          <ul class="harga-list">
-            <li>1 tema pilihan</li><li>Link & QR code</li><li>Musik pengiring</li>
-            <li>RSVP online</li><li>Revisi 2x</li><li class="off">Template premium</li>
-          </ul>
-          <a href="https://wa.me/6289517097989?text=Mau%20pesan%20paket%20Undangan%20Digital" class="btn-harga" target="_blank">Pilih Paket</a>
+          <div class="pricing-body">
+            <ul class="pricing-features">
+              <li><span class="check">✓</span> Desain template bawaan</li>
+              <li><span class="check">✓</span> Masa aktif 3 bulan</li>
+              <li><span class="check">✓</span> Maksimal 100 tamu (RSVP)</li>
+              <li><span class="check">✓</span> Musik latar (Auto-play)</li>
+              <li class="disabled"><span class="cross">✕</span> Galeri foto</li>
+              <li class="disabled"><span class="cross">✕</span> Hitung mundur (Countdown)</li>
+            </ul>
+            <a href="#kontak" class="pricing-btn outline">Pilih Paket Basic</a>
+          </div>
         </div>
 
-        <div class="harga-card harga-featured stagger-item">
-          <div class="harga-badge">⭐ Terlaris</div>
-          <div class="harga-header">
-            <span class="harga-label">Undangan Cetak</span>
-            <div class="harga-price"><span class="currency">Rp</span><span class="amount">3.500</span></div>
-            <span class="harga-note">/ lembar (min. 50 pcs)</span>
+        <!-- Paket 2: Premium (Rekomendasi / Populer) -->
+        <div class="pricing-card popular stagger-item">
+          <div class="popular-badge">Paling Laris 🔥</div>
+          <div class="pricing-header">
+            <span class="pricing-icon">✨</span>
+            <h3>Digital Premium</h3>
+            <p class="pricing-desc">Fitur lengkap untuk momen spesial Anda</p>
+            <div class="price-box">
+              <span class="currency">Rp</span>
+              <span class="price">149</span>
+              <span class="period">.000</span>
+            </div>
           </div>
-          <ul class="harga-list">
-            <li>Kertas art carton 260gr</li><li>Laminasi doff/glossy</li><li>Desain custom</li>
-            <li>Amplop gratis</li><li>Revisi unlimited</li><li>Packing aman</li>
-          </ul>
-          <a href="https://wa.me/6289517097989?text=Mau%20pesan%20paket%20Undangan%20Cetak" class="btn-harga featured" target="_blank">Pilih Paket</a>
+          <div class="pricing-body">
+            <ul class="pricing-features">
+              <li><span class="check">✓</span> Semua fitur di Paket Basic</li>
+              <li><span class="check">✓</span> Masa aktif 6 bulan</li>
+              <li><span class="check">✓</span> Tanpa batas tamu (Unlimited)</li>
+              <li><span class="check">✓</span> Galeri foto (Maks. 15 foto)</li>
+              <li><span class="check">✓</span> Hitung mundur (Countdown)</li>
+              <li><span class="check">✓</span> Love Story / Perjalanan Cinta</li>
+            </ul>
+            <a href="#kontak" class="pricing-btn solid">Pilih Paket Premium</a>
+          </div>
         </div>
 
-        <div class="harga-card stagger-item">
-          <div class="harga-header">
-            <span class="harga-label">Cetak Banner</span>
-            <div class="harga-price"><span class="currency">Rp</span><span class="amount">15.000</span></div>
-            <span class="harga-note">/ m² (min. 1 m²)</span>
+        <!-- Paket 3: Bundling (Cetak + Digital) -->
+        <div class="pricing-card stagger-item">
+          <div class="pricing-header">
+            <span class="pricing-icon">🎁</span>
+            <h3>Paket Bundling</h3>
+            <p class="pricing-desc">Undangan cetak + gratis digital premium</p>
+            <div class="price-box">
+              <span class="currency">Rp</span>
+              <span class="price">3</span>
+              <span class="period">.500 /pcs</span>
+            </div>
           </div>
-          <ul class="harga-list">
-            <li>Bahan flexi korea</li><li>Full color</li><li>Eyelet gratis</li>
-            <li>Desain gratis</li><li>Semua ukuran</li><li class="off">Tiang / rangka</li>
-          </ul>
-          <a href="https://wa.me/6289517097989?text=Mau%20pesan%20Cetak%20Banner" class="btn-harga" target="_blank">Pilih Paket</a>
+          <div class="pricing-body">
+            <ul class="pricing-features">
+              <li><span class="check">✓</span> Min. order 300 pcs (Cetak)</li>
+              <li><span class="check">✓</span> Kertas Jasmine/Tick Premium</li>
+              <li><span class="check">✓</span> Foil emas nama pengantin</li>
+              <li><span class="check">✓</span> Plastik & Label nama</li>
+              <li><span class="check">✓</span> <strong>GRATIS</strong> Undangan Digital Premium</li>
+              <li><span class="check">✓</span> Revisi desain sepuasnya</li>
+            </ul>
+            <a href="#kontak" class="pricing-btn outline">Tanya Detail Bundling</a>
+          </div>
         </div>
+
       </div>
-      <p class="harga-note-bottom reveal">💡 Harga di atas adalah estimasi. Hubungi kami untuk penawaran custom.</p>
     </div>
   </section>
 
-  <!-- ============================================
-       TESTIMONI
-       ============================================ -->
-  <section class="testimoni">
+  <section class="testimoni" id="testimoni">
     <div class="container">
-      <div class="section-header reveal">
-        <span class="section-tag">Kata Mereka</span>
+      <div class="section-header reveal slide-up">
+        <span class="section-tag badge-pulse">Kata Mereka</span>
         <h2 class="section-title">Testimoni <em>Pelanggan</em></h2>
+        <p class="section-desc">Kepuasan pelanggan adalah prioritas utama kami.</p>
       </div>
-      <div class="testi-grid stagger-container">
-        <div class="testi-card stagger-item">
-          <div class="testi-stars">★★★★★</div>
-          <p>"Undangan digitalnya bagus banget! Desain elegan, revisi cepat. Teman-teman banyak yang tanya pesan di mana. Highly recommend!"</p>
-          <div class="testi-author"><div class="testi-avatar">SR</div><div><strong>Sari Rahmawati</strong><span>Pengantin, Jakarta</span></div></div>
-        </div>
-        <div class="testi-card stagger-item">
-          <div class="testi-stars">★★★★★</div>
-          <p>"Sablon kaos untuk reuni keren banget! Warna presisi, tidak luntur, dikirim tepat waktu. Terima kasih REGYAG!"</p>
-          <div class="testi-author"><div class="testi-avatar">BH</div><div><strong>Budi Hartono</strong><span>Event Organizer, Bandung</span></div></div>
-        </div>
-        <div class="testi-card stagger-item">
-          <div class="testi-stars">★★★★★</div>
-          <p>"Banner toko saya cetak di sini sudah 3x. Kualitas konsisten, harga bersaing, CS ramah. Langganan tetap!"</p>
-          <div class="testi-author"><div class="testi-avatar">DM</div><div><strong>Dewi Maharani</strong><span>Pemilik Toko, Surabaya</span></div></div>
-        </div>
+      <!-- Loading state -->
+      <div id="testi-loading" style="text-align:center; padding: 40px; color: var(--color-text-muted);">
+        Memuat testimoni...
+      </div>
+      <!-- Grid testimoni, diisi otomatis oleh JS -->
+      <div class="testi-carousel-wrapper">
+        <div class="testi-grid" id="testi-grid"></div>
       </div>
     </div>
   </section>
 
   <!-- ============================================
-       FAQ
+       FAQ SECTION (MODERN & RESPONSIVE ACCORDION)
        ============================================ -->
   <section class="faq" id="faq">
     <div class="container">
       <div class="section-header reveal">
-        <span class="section-tag">Ada Pertanyaan?</span>
-        <h2 class="section-title">FAQ <em>Umum</em></h2>
+        <span class="section-tag">Pusat Bantuan</span>
+        <h2 class="section-title">Pertanyaan <em>Sering Diajukan</em></h2>
+        <p class="section-desc">Temukan jawaban cepat seputar layanan, durasi pengerjaan, hingga prosedur pemesanan di REGYAG.</p>
       </div>
-      <div class="faq-list stagger-container">
-        <div class="faq-item stagger-item"><button class="faq-q">Bagaimana cara memesan?<span class="faq-icon">+</span></button><div class="faq-a"><p>Hubungi kami via WhatsApp di <strong>+62 895-1709-7989</strong>. Tim kami akan membantu dari desain hingga pengiriman.</p></div></div>
-        <div class="faq-item stagger-item"><button class="faq-q">Berapa lama proses pengerjaan?<span class="faq-icon">+</span></button><div class="faq-a"><p>Tergantung pesanan: Undangan digital 1–2 hari, cetak 3–5 hari, banner 1–2 hari, sablon 3–7 hari. Express tersedia.</p></div></div>
-        <div class="faq-item stagger-item"><button class="faq-q">Apakah bisa revisi desain?<span class="faq-icon">+</span></button><div class="faq-a"><p>Ya! Revisi gratis hingga desain sesuai keinginan (sebelum cetak). Kepuasan Anda prioritas kami.</p></div></div>
-        <div class="faq-item stagger-item"><button class="faq-q">Apakah bisa kirim ke luar kota?<span class="faq-icon">+</span></button><div class="faq-a"><p>Bisa! Kami kirim ke seluruh Indonesia via JNE, J&T, SiCepat. Ongkir ditanggung pembeli.</p></div></div>
-        <div class="faq-item stagger-item"><button class="faq-q">Metode pembayaran apa saja?<span class="faq-icon">+</span></button><div class="faq-a"><p>Transfer bank (BCA, BRI, Mandiri, BNI), GoPay, OVO, DANA, QRIS. DP 50% atau lunas.</p></div></div>
+
+      <div class="faq-wrapper stagger-container">
+        
+        <!-- FAQ Item 1 -->
+        <!-- Atribut name="faq-accordion" membuat hanya 1 tab yang bisa terbuka bersamaan (di browser modern) -->
+        <details class="faq-item stagger-item" name="faq-accordion" open>
+          <summary class="faq-question">
+            Berapa lama proses pembuatan undangan digital?
+            <span class="faq-icon"></span>
+          </summary>
+          <div class="faq-answer">
+            <p>Proses pengerjaan standar memakan waktu 1-3 hari kerja setelah semua data (teks, foto, lokasi) kami terima secara lengkap. Kami juga menyediakan layanan <em>Express 24 Jam</em> dengan sedikit biaya tambahan bagi Anda yang membutuhkan secara mendesak.</p>
+          </div>
+        </details>
+
+        <!-- FAQ Item 2 -->
+        <details class="faq-item stagger-item" name="faq-accordion">
+          <summary class="faq-question">
+            Apakah bisa revisi jika ada kesalahan teks atau foto?
+            <span class="faq-icon"></span>
+          </summary>
+          <div class="faq-answer">
+            <p>Tentu bisa! Kami memberikan garansi revisi minor (seperti ganti teks, perbaikan *typo*, atau tukar posisi foto) sepuasnya sampai undangan siap disebar. Namun, untuk revisi ganti tema/template secara total tidak termasuk dalam garansi ini.</p>
+          </div>
+        </details>
+
+        <!-- FAQ Item 3 -->
+        <details class="faq-item stagger-item" name="faq-accordion">
+          <summary class="faq-question">
+            Untuk sablon kaos, apakah ada minimal order?
+            <span class="faq-icon"></span>
+          </summary>
+          <div class="faq-answer">
+            <p>Untuk sablon DTF (Digital Transfer Film) tidak ada minimal order, Anda bisa pesan satuan! Namun untuk sablon manual (Plastisol/Rubber), kami menyarankan minimal order 12 pcs (1 lusin) agar mendapatkan harga yang lebih ekonomis.</p>
+          </div>
+        </details>
+
+        <!-- FAQ Item 4 -->
+        <details class="faq-item stagger-item" name="faq-accordion">
+          <summary class="faq-question">
+            Bagaimana sistem pembayaran di REGYAG?
+            <span class="faq-icon"></span>
+          </summary>
+          <div class="faq-answer">
+            <p>Sistem pembayaran kami sangat aman. Anda cukup membayar DP (Down Payment) sebesar 50% di awal sebagai tanda jadi pengerjaan. Sisa pelunasan dibayarkan setelah proyek selesai dan siap dikirim atau diserahkan kepada Anda.</p>
+          </div>
+        </details>
+
+        <!-- FAQ Item 5 -->
+        <details class="faq-item stagger-item" name="faq-accordion">
+          <summary class="faq-question">
+            Apakah melayani pengiriman cetakan ke luar kota?
+            <span class="faq-icon"></span>
+          </summary>
+          <div class="faq-answer">
+            <p>Sangat bisa. Kami bekerja sama dengan berbagai ekspedisi terpercaya (JNE, J&T, Cargo, dll) untuk mengirimkan pesanan fisik (undangan cetak, kaos, banner) ke seluruh wilayah Indonesia dengan aman menggunakan proteksi kemasan ganda.</p>
+          </div>
+        </details>
+
       </div>
     </div>
   </section>
 
-  <!-- ============================================
-       KONTAK / CTA
-       ============================================ -->
   <section class="kontak" id="kontak">
     <div class="container">
-      <div class="kontak-inner">
-        <div class="kontak-cta reveal-left">
-          <span class="section-tag">Siap Mulai?</span>
-          <h2>Hubungi Kami<br /><em>Sekarang Juga!</em></h2>
-          <p>Tim kami siap membantu Anda 7 hari seminggu. Konsultasi gratis, tanpa biaya apapun.</p>
-          <div class="kontak-links">
-            <a href="https://wa.me/6289517097989" class="kontak-btn wa" target="_blank">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg> WhatsApp
-            </a>
-            <a href="https://instagram.com/regamalik_" class="kontak-btn ig" target="_blank">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> Instagram
-            </a>
-            <a href="mailto:regamalik20@gmail.com" class="kontak-btn email">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg> Email Kami
-            </a>
+      <div class="section-header reveal">
+        <span class="section-tag">Hubungi Kami</span>
+        <h2 class="section-title">Mulai Proyek <em>Anda</em></h2>
+        <p class="section-desc">Punya pertanyaan atau siap untuk melakukan pemesanan? Tim kami siap membantu merealisasikan ide hebat Anda.</p>
+      </div>
+
+      <div class="kontak-grid">
+        
+        <div class="kontak-info-wrapper reveal-left">
+          
+          <a href="https://wa.me/6289517097989?text=Halo%20REGYAG%2C%20saya%20mau%20tanya" target="_blank" class="kontak-card">
+            <div class="kontak-icon-box wa">
+              <span class="k-icon">💬</span>
+            </div>
+            <div class="kontak-text">
+              <h4>WhatsApp Chat</h4>
+              <p>+62 895-1709-7989</p>
+              <span class="kontak-action">Chat Sekarang ↗</span>
+            </div>
+          </a>
+
+          <a href="https://instagram.com/regyag" target="_blank" class="kontak-card">
+            <div class="kontak-icon-box ig">
+              <span class="k-icon">📸</span>
+            </div>
+            <div class="kontak-text">
+              <h4>Instagram</h4>
+              <p>@regyag</p>
+              <span class="kontak-action">Ikuti Kami ↗</span>
+            </div>
+          </a>
+
+          <div class="kontak-card static">
+            <div class="kontak-icon-box time">
+              <span class="k-icon">⏰</span>
+            </div>
+            <div class="kontak-text">
+              <h4>Jam Operasional</h4>
+              <p>Senin – Sabtu: 08.00 — 17.00 WIB</p>
+              <span class="kontak-status-badge">Respon Cepat</span>
+            </div>
           </div>
+
+          <div class="kontak-card static">
+            <div class="kontak-icon-box map">
+              <span class="k-icon">📍</span>
+            </div>
+            <div class="kontak-text">
+              <h4>Lokasi Workshop</h4>
+              <p>Jl. Pulau Pandan, Way Dadi, Kec. Sukarame, Kota Bandar Lampung, Lampung , Indonesia</p>
+            </div>
+          </div>
+
         </div>
-        <div class="kontak-info reveal-right">
-          <h3>Informasi Kontak</h3>
-          <div class="info-item"><strong>📱 WhatsApp</strong><span>+62 895-1709-7989</span></div>
-          <div class="info-item"><strong>📸 Instagram</strong><span>@regamalik_</span></div>
-          <div class="info-item"><strong>📧 Email</strong><span>regamalik20@gmail.com</span></div>
-          <div class="info-item"><strong>🕐 Jam Operasional</strong><span>Senin – Sabtu, 08.00 – 21.00 WIB</span></div>
-          <div class="info-item"><strong>📍 Lokasi</strong><span>Indonesia (Melayani seluruh negeri)</span></div>
+
+        <div class="kontak-form-wrapper reveal-right">
+          <form class="kontak-form" action="https://wa.me/6289517097989" method="GET" target="_blank">
+            <h3 class="form-title">Kirim Pesan Cepat</h3>
+            <p class="form-subtitle">Isi formulir di bawah ini untuk konsultasi langsung via WhatsApp.</p>
+            
+            <div class="form-group">
+              <label for="name">Nama Lengkap</label>
+              <input type="text" id="name" name="text_nama" placeholder="Masukkan nama Anda" required />
+            </div>
+
+            <div class="form-group">
+              <label for="layanan">Pilih Layanan</label>
+              <select id="layanan" name="text_layanan" required>
+                <option value="" disabled selected>-- Pilih Layanan Kebutuhan --</option>
+                <option value="Undangan Digital">Undangan Digital</option>
+                <option value="Undangan Cetak">Undangan Cetak</option>
+                <option value="Sablon Kaos">Sablon Kaos / Konveksi</option>
+                <option value="Cetak Banner / Spanduk">Cetak Banner / Spanduk</option>
+                <option value="Lainnya">Lainnya / Tanya-tanya</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Detail Pesan / Catatan</label>
+              <textarea id="message" name="text_pesan" rows="4" placeholder="Tuliskan detail pesanan atau pertanyaan Anda di sini..." required></textarea>
+            </div>
+
+            <button type="submit" class="form-submit-btn">
+              <span>Kirim via WhatsApp</span>
+              <span class="btn-arrow">→</span>
+            </button>
+          </form>
         </div>
+
       </div>
     </div>
   </section>
 
   <!-- ============================================
-       FOOTER
+       FOOTER SECTION (MODERN & RESPONSIVE)
        ============================================ -->
-  <footer class="footer">
-    <div class="container footer-inner">
-      <div class="footer-logo">
-        <a href="#home" class="logo"><span class="logo-reg">REG</span><span class="logo-yag">YAG</span></a>
-        <p>Solusi cetak & desain terbaik untuk setiap momen berharga Anda.</p>
+    <footer class="site-footer reveal">
+    <div class="footer-container">
+      <!-- Kolom 1: Branding & Sosial Media -->
+      <div class="footer-column brand-info">
+        <h2 class="footer-logo">REGYAG<span>.</span></h2>
+        <p class="footer-desc">Wujudkan momen berharga dan kebutuhan visual Anda bersama layanan cetak & digital berkualitas premium. Cepat, tepat, dan berkelas.</p>
+        <div class="footer-socials">
+          <a href="https://instagram.com/" class="social-icon hover-lift" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+          <a href="https://wa.me/6289517097989" class="social-icon hover-lift" aria-label="WhatsApp" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://tiktok.com/" class="social-icon hover-lift" aria-label="TikTok" target="_blank" rel="noopener"><i class="fab fa-tiktok"></i></a>
+        </div>
       </div>
-      <div class="footer-links"><h4>Layanan</h4><ul><li><a href="#layanan">Undangan Digital</a></li><li><a href="#layanan">Undangan Cetak</a></li><li><a href="#layanan">Sablon</a></li><li><a href="#layanan">Cetak Banner</a></li><li><a href="#layanan">Stiker & Label</a></li></ul></div>
-      <div class="footer-links"><h4>Navigasi</h4><ul><li><a href="#home">Beranda</a></li><li><a href="#portofolio">Portofolio</a></li><li><a href="#harga">Harga</a></li><li><a href="#faq">FAQ</a></li><li><a href="#kontak">Kontak</a></li></ul></div>
-      <div class="footer-sosmed"><h4>Media Sosial</h4><div class="sosmed-links"><a href="https://wa.me/6289517097989" target="_blank">💬 WhatsApp</a><a href="https://instagram.com/regamalik_" target="_blank">📸 Instagram</a><a href="mailto:regamalik20@gmail.com">📧 Email</a></div></div>
+      <!-- Kolom 2: Layanan Utama -->
+      <div class="footer-column">
+        <h3 class="footer-title">Layanan Kami</h3>
+        <ul class="footer-links">
+          <li><a href="#layanan" class="link-item">Undangan Digital Link</a></li>
+          <li><a href="#layanan" class="link-item">Undangan Cetak Premium</a></li>
+          <li><a href="#layanan" class="link-item">Sablon Kaos Komunitas</a></li>
+          <li><a href="#layanan" class="link-item">Cetak Banner & Stiker</a></li>
+        </ul>
+      </div>
+      <!-- Kolom 3: Navigasi Cepat -->
+      <div class="footer-column">
+        <h3 class="footer-title">Tautan Kilat</h3>
+        <ul class="footer-links">
+          <li><a href="#tentang" class="link-item">Tentang Kami</a></li>
+          <li><a href="#porto" class="link-item">Portofolio</a></li>
+          <li><a href="#harga" class="link-item">Daftar Harga</a></li>
+          <li><a href="#faq" class="link-item">Tanya Jawab (FAQ)</a></li>
+        </ul>
+      </div>
+      <!-- Kolom 4: Kontak & Jam Kerja -->
+      <div class="footer-column contact-info">
+        <h3 class="footer-title">Workshop</h3>
+        <p class="contact-text"><i class="fas fa-map-marker-alt"></i> Jl. Pulau Pandan, Way Dadi, Kec. Sukarame, Kota Bandar Lampung, Lampung , Indonesia</p>
+        <p class="contact-text"><i class="fas fa-clock"></i> Senin – Sabtu: 08.00 — 17.00 WIB</p>
+        <span class="status-badge badge-pulse">● Menerima Orderan</span>
+      </div>
     </div>
-    <div class="footer-bottom"><div class="container"><p>&copy; 2025 REGYAG. Semua hak dilindungi.</p><p>Made with ❤️ for every special moment</p></div></div>
+    <!-- Gars Pembatas Bawah & Hak Cipta -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-container">
+        <p>&copy; 2026 REGYAG Creative. All Rights Reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Syarat & Ketentuan</a>
+          <a href="#">Kebijakan Privasi</a>
+        </div>
+      </div>
+    </div>
   </footer>
 
   <!-- Tombol Float WhatsApp -->
